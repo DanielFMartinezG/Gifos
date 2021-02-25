@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head lang="es">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIFOS</title>
+    <!--Styles-->
+    <link rel="stylesheet" href="./styles/css/style.css">
+    <link rel="stylesheet" href="./styles/css/dark.mode.css">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+        <hr class="line-decoration">
+        <!--_________________-SECCIÓN DE ENCABEZADO________________-->
+        <header class="header-container">
+            <div class="logo-box">
+                <img src="./assets/logo-desktop.svg" alt="Logo de gifos" class="logo">
+            </div>
+            <input type="checkbox" class="checkbox-menu" id="show-header-menu">
+            
+            <label class="show-menu" id="show-menu" for="show-header-menu">
+                <img src="./assets/burger.svg" class="burguer-menu" alt="menú hamburguesa">
+                <img src="./assets/close.svg" class="close-menu" alt="cerrar menú">
+            </label>
+            <div class="menu-container">
+                <div class="menu-item night-item">
+                    <div class="btn_menu" id="btn_night_mode">modo nocturno</div>
+                    <hr class="menu-item-line">
+                </div>
+                <a href="./links/index-fav.html">
+                    <div class="menu-item favourite-item">
+                        <div class="btn_menu">favoritos</div>
+                        <hr class="menu-item-line">
+                    </div>
+                </a>
+                <div class="menu-item mygifos-item">
+                    <div class="btn_menu">mis gifos</div>
+                    <hr class="menu-item-line">
+                </div>
+                <div class="box-new-gifo">
+                    <img src="./assets/button-crear-gifo.svg" alt="crear gifos" class="btn-new-gifos-normal">
+                    <img src="./assets/CTA-crear-gifo-hover.svg" alt="crear gifos" class="btn-new-gifos-hover">
+                </div>
+            </div>
+        </header>
+        <!--__________________TITULO DE LA PAGINA___________________-->
+        <h1 class="title">Inspírate, busca, guarda, y crea los mejores <span class="decoration-title">gifos</span></h1>
+        <!--__________________SECCIÓN DE BUSCAR GIFOS_______________-->
+        <section class="search-gifos-container">
+            <div class="welcome-img-box">
+                <img src="./assets/ilustra_header.svg" class="welcome-img" alt="imagen bienvenida">
+            </div>
+            <div class="search-container">
+                <!--CAJA PARA BUSQUEDA-->
+                <div class="search-box">
+                    <img src="./assets/icon-search-mod-noc.svg" class="search-icon-active" alt="icono buscador">
+                    <input type="text" class="search-input" placeholder="Busca GIFOS y más">
+                    <img src="./assets/icon-search.svg" class="search-icon" alt="icono buscador">
+                    <img src="./assets/close.svg" class="close-icon" alt="icono buscador">
+                </div>
+                <!--SUGERENCIAS DE RESULTADOS-->
+                <div class="suggest-box">
+                    <div class="suggest-item">
+                        <img src="./assets/icon-search-mod-noc.svg" class="search-icon-suggest" alt="icono buscador">
+                        <div class="suggest">Sugerencia 1</div>
+                    </div>
+                    <div class="suggest-item">
+                        <img src="./assets/icon-search-mod-noc.svg" class="search-icon-suggest" alt="icono buscador">
+                        <div class="suggest">Sugerencia 2</div>
+                    </div>
+                </div>
+            </div>
+            <div class="trending-box">
+                <h3 class="trending-title">Trending:</h3>
+                <p class="trending-content">Reactions, Entertainment, Sports, Stickers, Artists</p>
+            </div>
+        </section>
+        <!--__________________SECCIÓN TRENDING GIFOS________________-->
+        <section class="trending-gifos-container">
+            <h2 class="title-trending-gifos">Trending GIFOS</h2>
+            <p class="content-trending-gifos">Mira los últimos <span class="line-break">GIFO de nuestra comunidad.</span></p>
+            <div class="gifos-slider-container">
+                <!--BOTÓN SLIDER IZQUIERDO-->
+                <div class="slider-icon-box btn-left" id="slider-btn-left">
+                    <img src="./assets/button-slider-left.svg" alt="slider left" class="slider-icon">
+                    <img src="./assets/button-slider-left-hover.svg" alt="slider left" class="slider-icon-hover">
+                </div>
+                <!--CARRUSEL DE GIFOS-->
+                <div class="slider-container"><!--DIV QUE CONTENDRÁ EL SLIDER CON UN ANCHO ESPECIFICO-->
+                    <div class="slider"><!--DIV ENCARGADO DE CONTENER LOS GIFOS Y COMPORTARSE COMO SLIDE, SU ANCHO, SERÁ MUCHO MAYOR AL PADRE-->
+                        <div class="gifos-box"><!--CONTENEDOR DEL GIF-->
+                            <img src="./assets/gato.png" alt="" class="gifo-img"> <!--LINK DEL GIF-->
+                            <div class="gifos-box-hover"><!--MENU EMERGENTE MEDIANTE HOVER-->
+                                <div class="icons-gifos-box">
+                                    <div class="gifos-icon">
+                                        <img src="./assets/icon-fav.svg" alt="fav icono" class="gifos-icon-normal">
+                                        <img src="./assets/icon-fav-hover.svg" alt="fav icono" class="gifos-icon-hover">
+                                    </div>
+                                    <div class="gifos-icon">
+                                        <img src="./assets/icon-download.svg" alt="descargas icono" class="gifos-icon-normal">
+                                        <img src="./assets/icon-download-hover.svg" alt="descargas icono" class="gifos-icon-hover">
+                                    </div>
+                                    <div class="gifos-icon">
+                                        <img src="./assets/icon-max-normal.svg" alt="max icono" class="gifos-icon-normal">
+                                        <img src="./assets/icon-max-hover.svg" alt="max icono" class="gifos-icon-hover">
+                                    </div>
+                                </div>
+                                <p class="user-gifos">User</p>
+                                <p class="title-gifos">Título GIFO</p>
+                            </div>
+                        </div>
+                        <div class="gifos-box">
+                            <img src="./assets/gato.png" alt="" class="gifo-img">
+                        </div>
+                        <div class="gifos-box">
+                            <img src="./assets/gato.png" alt="" class="gifo-img">
+                        </div>
+                        <div class="gifos-box">
+                            <img src="./assets/gato.png" alt="" class="gifo-img">
+                        </div>
+                    </div>
+                </div>
+                <!--BOTÓN SLIDER DERECHO -->
+                <div class="slider-icon-box btn-right" id="slider-btn-right">
+                    <img src="./assets/Button-Slider-right.svg" alt="slider left" class="slider-icon">
+                    <img src="./assets/Button-Slider-right-hover.svg" alt="slider left" class="slider-icon-hover">
+                </div>
+            </div>
+        </section>
+        <!--__________________SECCIÓN FOOTER________________________-->
+        <footer class="footer-gifos">
+            <div class="socialnet-box">
+                <h4 class="title-footer">Compartir en:</h4>
+                <a href="#" class="socialnet-icon-box">
+                    <img src="./assets/icon_facebook.svg" alt="facebook icon" class="socialnet-icon-normal">
+                    <img src="./assets/icon_facebook_hover.svg" alt="facebook icon" class="socialnet-icon-hover">
+                </a>
+                <a href="#" class="socialnet-icon-box">
+                    <img src="./assets/icon-twitter.svg" alt="twitter icon" class="socialnet-icon-normal twitter-icon-normal">
+                    <img src="./assets/icon-twitter-hover.svg" alt="twitter icon" class="socialnet-icon-hover twitter-icon-hover">
+                </a>
+                <a href="#" class="socialnet-icon-box">
+                    <img src="./assets/icon_instagram.svg" alt="instagram icon" class="socialnet-icon-normal">
+                    <img src="./assets/icon_instagram-hover.svg" alt="instagram icon" class="socialnet-icon-hover">
+                </a>
+            </div>
+            <h5 class="content-footer">© GIFOS 2020 All Rights Reserved.</h5>
+        </footer>
+        <hr class="line-decoration">
+    </div>
+    <script type="text/javascript" src="./scripts/script.js"></script>
+</body>
+</html>
