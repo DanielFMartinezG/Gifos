@@ -1,0 +1,42 @@
+.page-container.dark-mode {
+  background: #37383C;
+}
+.page-container.dark-mode .header-container .menu-container {
+  background: #000000;
+}
+.page-container.dark-mode .header-container .menu-container .menu-item .menu-item-line {
+  background-color: #FFFFFF;
+}
+.page-container.dark-mode .title {
+  color: #FFFFFF;
+}
+.page-container.dark-mode .search-gifos-container .search-container {
+  border: 1px solid #FFFFFF;
+}
+.page-container.dark-mode .search-gifos-container .search-container .search-input {
+  background: #37383C;
+  color: white;
+}
+.page-container.dark-mode .search-gifos-container .trending-box {
+  color: #FFFFFF;
+}
+.page-container.dark-mode .trending-gifos-container {
+  background: #222326;
+}
+.page-container.dark-mode .trending-gifos-container .title-trending-gifos, .page-container.dark-mode .trending-gifos-container .content-trending-gifos {
+  color: #FFFFFF;
+}
+.page-container.dark-mode .footer-gifos {
+  color: #FFFFFF;
+}
+
+@media (min-width: 1024px) {
+  .page-container.dark-mode .header-container .menu-container {
+    background: #37383C;
+  }
+  .page-container.dark-mode .header-container .menu-container .menu-item {
+    color: #FFFFFF;
+  }
+}
+
+/*# sourceMappingURL=dark.mode.css.map */

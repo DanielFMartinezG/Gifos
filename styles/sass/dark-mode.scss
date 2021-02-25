@@ -1,0 +1,50 @@
+//mediante la nueva hoja de estilos, dar los colores para el modo dark
+.page-container.dark-mode{ //cuando la etiqueta tenga las dos clases
+    background: #37383C;
+    .header-container{
+        .menu-container{
+            background: #000000;
+            .menu-item{
+                .menu-item-line{
+                    background-color:  #FFFFFF;
+                }
+            }
+        }
+    }
+    .title{
+        color: #FFFFFF;
+    }
+    .search-gifos-container{
+        .search-container{
+            border: 1px solid #FFFFFF;
+            .search-input{
+                background: #37383C;
+                color: white;
+            }
+        }
+        .trending-box{
+            color: #FFFFFF;
+        }
+    }
+    .trending-gifos-container{
+        background: #222326;
+        .title-trending-gifos, .content-trending-gifos{
+            color: #FFFFFF;
+        }
+    }
+    .footer-gifos{
+        color: #FFFFFF;
+    }
+}
+@media (min-width: 1024px){
+    .page-container.dark-mode{
+        .header-container{
+            .menu-container{
+                background: #37383C;
+                .menu-item{
+                    color:  #FFFFFF;
+                }
+            }
+        }
+    }
+}
