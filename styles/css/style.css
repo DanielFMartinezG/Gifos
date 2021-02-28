@@ -24,6 +24,7 @@
   height: 100%;
   max-width: 1440px;
   z-index: 2;
+  overflow: scroll;
 }
 .page-container .full-screen-section .full-screen-container {
   margin: auto;
