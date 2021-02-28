@@ -14,6 +14,45 @@
 </head>
 <body>
     <div class="page-container">
+        <!--____________ SECCIÓN DESTINADA AL FULL SCREEN GIFO_____________ -->
+        <input type="checkbox" class="show_full_screen" id="show_full_screen">
+        <section class="full-screen-section">
+            <div class="full-screen-container">
+                <label for="show_full_screen">
+                    <img src="./assets/close.svg" alt="close gifo" class="close-gifo-full-screen">
+                </label>
+                <!-- SECCIÓN DEL GIFO -->
+                <div class="gifo-section-fs">
+                    <!--BOTÓN IZQUIERDO-->
+                    <div class="slider-icon-box-fs btn-left-fs" id="slider-btn-left-fs">
+                        <img src="./assets/button-slider-left.svg" alt="slider left" class="slider-icon-fs">
+                        <img src="./assets/button-slider-left-hover.svg" alt="slider left" class="slider-icon-hover-fs">
+                    </div>
+                    <!-- IMG GIFO -->
+                    <img src="./assets/gato.png" alt="gif full screen" class="gifo-full-screen">
+                    <!--BOTÓN SLIDER DERECHO -->
+                    <div class="slider-icon-box-fs btn-right-fs" id="slider-btn-right-fs">
+                        <img src="./assets/Button-Slider-right.svg" alt="slider left" class="slider-icon-fs">
+                        <img src="./assets/Button-Slider-right-hover.svg" alt="slider left" class="slider-icon-hover-fs">
+                    </div>
+                </div>
+                <!-- DESCRIPCIÓN DEL GIFO -->
+                <div class="description-full-screen">
+                    <p class="user-full-screen">User</p>
+                    <p class="title-full-screen">Título GIFO</p>
+                </div>
+                    <!-- ICONOS -->
+                <div class="item-full-screen">
+                    <img src="./assets/icon-fav.svg" alt="" class="fs-icon-normal item-gifo-fs">
+                    <img src="./assets/icon-fav-active.svg" alt="" class="fs-icon-activate item-gifo-fs">
+                </div>
+                <div class="item-full-screen">
+                    <img src="./assets/icon-download.svg" alt="" class="fs-icon-normal item-gifo-fs">
+                    <img src="./assets/icon-download-hover.svg" alt="" class="fs-icon-hover item-gifo-fs">
+                </div>
+            </div>
+        </section>
+        <!--_________________LINEA TOP________________-->
         <hr class="line-decoration">
         <!--_________________-SECCIÓN DE ENCABEZADO________________-->
         <header class="header-container">
@@ -93,7 +132,9 @@
                 <div class="slider-container"><!--DIV QUE CONTENDRÁ EL SLIDER CON UN ANCHO ESPECIFICO-->
                     <div class="slider"><!--DIV ENCARGADO DE CONTENER LOS GIFOS Y COMPORTARSE COMO SLIDE, SU ANCHO, SERÁ MUCHO MAYOR AL PADRE-->
                         <div class="gifos-box"><!--CONTENEDOR DEL GIF-->
-                            <img src="./assets/gato.png" alt="" class="gifo-img"> <!--LINK DEL GIF-->
+                            <label for="show_full_screen">
+                                <img src="./assets/gato.png" alt="" class="gifo-img"> <!--LINK DEL GIF-->
+                            </label>
                             <div class="gifos-box-hover"><!--MENU EMERGENTE MEDIANTE HOVER-->
                                 <div class="icons-gifos-box">
                                     <div class="gifos-icon">
@@ -114,13 +155,19 @@
                             </div>
                         </div>
                         <div class="gifos-box">
-                            <img src="./assets/gato.png" alt="" class="gifo-img">
+                            <label for="show_full_screen">
+                                <img src="./assets/gato.png" alt="" class="gifo-img">
+                            </label>
                         </div>
                         <div class="gifos-box">
-                            <img src="./assets/gato.png" alt="" class="gifo-img">
+                            <label for="show_full_screen">
+                                <img src="./assets/gato.png" alt="" class="gifo-img">
+                            </label>
                         </div>
                         <div class="gifos-box">
-                            <img src="./assets/gato.png" alt="" class="gifo-img">
+                            <label for="show_full_screen">
+                                <img src="./assets/gato.png" alt="" class="gifo-img">
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -150,6 +197,7 @@
             </div>
             <h5 class="content-footer">© GIFOS 2020 All Rights Reserved.</h5>
         </footer>
+        <!--_________________LINEA BOTTOM________________-->
         <hr class="line-decoration">
     </div>
     <script type="text/javascript" src="./scripts/script.js"></script>
