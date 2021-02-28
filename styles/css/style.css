@@ -40,6 +40,8 @@
   display: none;
 }
 .page-container .full-screen-section .full-screen-container .gifo-section-fs .slider-icon-box-fs .slider-icon-hover-fs {
+  width: 40px;
+  height: 40px;
   display: none;
 }
 .page-container .full-screen-section .full-screen-container .gifo-section-fs .gifo-full-screen {
@@ -394,9 +396,11 @@
 }
 .page-container .trending-gifos-container .gifos-slider-container .slider-container .slider .gifos-box .gifos-box-hover .icons-gifos-box .gifos-icon:hover .gifos-icon-normal {
   display: none;
+  cursor: pointer;
 }
 .page-container .trending-gifos-container .gifos-slider-container .slider-container .slider .gifos-box .gifos-box-hover .icons-gifos-box .gifos-icon:hover .gifos-icon-hover {
   display: block;
+  cursor: pointer;
 }
 .page-container .trending-gifos-container .gifos-slider-container .slider-container .slider .gifos-box .gifos-box-hover .user-gifos {
   margin: 138px 0 0 18px;
@@ -497,6 +501,9 @@
   }
 }
 @media (min-width: 1024px) {
+  .page-container .full-screen-section {
+    overflow: hidden;
+  }
   .page-container .full-screen-section .full-screen-container {
     max-width: 825px;
   }

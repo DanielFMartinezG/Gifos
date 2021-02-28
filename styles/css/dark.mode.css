@@ -1,6 +1,10 @@
 .page-container.dark-mode {
   background: #37383C;
 }
+.page-container.dark-mode .full-screen-section {
+  background: #37383C;
+  color: #FFFFFF;
+}
 .page-container.dark-mode .header-container .menu-container {
   background: #000000;
 }

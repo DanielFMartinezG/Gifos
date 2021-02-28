@@ -1,6 +1,10 @@
 //mediante la nueva hoja de estilos, dar los colores para el modo dark
 .page-container.dark-mode{ //cuando la etiqueta tenga las dos clases
     background: #37383C;
+    .full-screen-section{
+        background: #37383C;
+        color: #FFFFFF;
+    }
     .header-container{
         .menu-container{
             background: #000000;

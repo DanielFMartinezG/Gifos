@@ -56,6 +56,8 @@
                 .slider-icon-box-fs{
                     display: none;
                     .slider-icon-hover-fs{
+                        width: 40px;
+                        height: 40px;
                         display: none;
                     }
                 }
@@ -376,9 +378,11 @@
                                     &:hover{
                                         .gifos-icon-normal{
                                             display: none;
+                                            cursor: pointer;
                                         }
                                         .gifos-icon-hover{
                                             display: block;
+                                            cursor: pointer;
                                         }
                                     }
                                 }
@@ -485,6 +489,7 @@
     .page-container{
         //______________-FULL SCREEN GIFOS______________
         .full-screen-section{
+            overflow: hidden;
             .full-screen-container{
                 max-width: 825px;
                 .close-gifo-full-screen{
