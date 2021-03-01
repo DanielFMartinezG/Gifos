@@ -71,6 +71,7 @@ night_mode.addEventListener("click", ()=>{
     }
 });
 //Funcionalidad de ver más
+//SE DEBE PRIMERO CREAR LOS CONTENEDORES DE LOS GIFOS ANTES DE ESPECIFICAR LA TRANSICIÓN
 let suggest_box = document.getElementsByClassName("suggest-box");
 let search_box = document.getElementsByClassName("search-box");
 let search_input = document.getElementsByClassName("search-input");
@@ -82,8 +83,37 @@ search_input[0].addEventListener("blur", () =>{
     suggest_box[0].style.display = "none";
     search_box[0].style.borderBottom = "none";
 });
-//Trasladar slider
+//_______Funcionalidad GIFOS____________
+let url_trending = "https://api.giphy.com/v1/gifs/trending?api_key=RaZbdmj1owbBOfIeJgbEEEtEjE3poegE&limit=25&rating=g";
 let slider = document.getElementsByClassName("slider");
+let gifos_box_feature = document.getElementById("gifos-box-feature");
+let num_gifos = 10;
+for(let i=0; i<num_gifos; i++){
+    let gifos_box_clone = gifos_box_feature.cloneNode(true);
+    slider[0].appendChild(gifos_box_clone);
+    let gifo_img = document.getElementsByClassName("gifo-img");
+    gifo_img[i].id = "gifo-trending"+(i+1);
+    let title_gifo = document.getElementsByClassName("title-gifos");
+    let user_gifo = document.getElementsByClassName("user-gifos");
+    
+    //POSIBLEMENTE PODRÍA  ALMACENAR LA INFOMARCIÓN QUE NECESITO DEL GIFO EN UNA LISTA PARA CUANDO TENGA QUE VOLVER A REQUERIRLA NO TENER QUE HACER OTRO LLAMADO
+    fetch(url_trending)
+    .then(responese => responese.json())
+    .then(gifo_response => {
+        console.log(gifo_response.data[i]);
+        title_gifo[i].innerHTML = gifo_response.data[i].title;
+        user_gifo[i].innerHTML = gifo_response.data[i].user.display_name == "" ? gifo_response.data[i].username : gifo_response.data[i].user.display_name;
+        //ruta para obtener la url del gifo
+        let url_gifo = gifo_response.data[i].images.original.url;
+        gifo_img[i].src = url_gifo;
+    }).catch(message_error => console.log(message_error));
+    
+}
+slider[0].removeChild(gifos_box_feature);
+
+
+//_______Funcionalidad transición slider_______
+//Trasladar slider
 let slider_btn_left = document.getElementById("slider-btn-left");
 let slider_btn_right = document.getElementById("slider-btn-right");
 let gifos_box = document.getElementsByClassName("gifos-box");
@@ -92,7 +122,6 @@ let dist_2 = 0;//variable para almacenar la diferencia del ancho entre el slider
 let position_gifos = [];//lista para almacenar la posición de cada gifo, puede ser de 1 indice pero determinare su longitud dependiendo del número de gifos
 let x = gifos_box.length - 3;//# de veces que se deben desplazar los gifos, son 3 gifos los que se logran ver en el ancho del slider, podría verse como el #de veces que se hará click
 let max_width_slider_cotainer = 1161;//maximo ancho del slider
-//como se puede crear una lista de ceros en JS??
 for(let i = 0; i < gifos_box.length; i++){
     position_gifos.push(0); 
 }
