@@ -84,45 +84,71 @@ search_input[0].addEventListener("blur", () =>{
     search_box[0].style.borderBottom = "none";
 });
 //_______Funcionalidad GIFOS____________
-let url_trending = "https://api.giphy.com/v1/gifs/trending?api_key=RaZbdmj1owbBOfIeJgbEEEtEjE3poegE&limit=25&rating=g";
-let slider = document.getElementsByClassName("slider");
-let gifos_box_feature = document.getElementById("gifos-box-feature");
-let num_gifos = 10;
-for(let i=0; i<num_gifos; i++){
-    let gifos_box_clone = gifos_box_feature.cloneNode(true);
-    slider[0].appendChild(gifos_box_clone);
-    let gifo_img = document.getElementsByClassName("gifo-img");
-    gifo_img[i].id = "gifo-trending"+(i+1);
-    let title_gifo = document.getElementsByClassName("title-gifos");
-    let user_gifo = document.getElementsByClassName("user-gifos");
-    
-    //POSIBLEMENTE PODRÍA  ALMACENAR LA INFOMARCIÓN QUE NECESITO DEL GIFO EN UNA LISTA PARA CUANDO TENGA QUE VOLVER A REQUERIRLA NO TENER QUE HACER OTRO LLAMADO
-    fetch(url_trending)
+//creo una clase para almacentar la url de la información de los gifos del slider, además, los id que me permitirán acceder a ellos al hacer click sobre un icon
+class Trending_gifo {
+    constructor(url_gif, id_gif_img, id_fav_gif_icon, id_dow_gif_icon, id_fs_gif_icon){
+        this.url_gif = url_gif;//url de la información del gifo en una posición especifica
+        this.id_gif_img = id_gif_img;//id de la imagen que almacena el gifo
+        this.id_fav_gif_icon = id_fav_gif_icon;//id del icono de favoritos de cada gifo
+        this.id_dow_gif_icon = id_dow_gif_icon;//id del icono de dowlands de cada gifo
+        this.id_fs_gif_icon = id_fs_gif_icon;//id del icono de full screen de cada gifo
+    }
+} 
+let url_trending = "https://api.giphy.com/v1/gifs/trending?api_key=RaZbdmj1owbBOfIeJgbEEEtEjE3poegE&limit=25&rating=g";//URL TRENDING GIPHY
+let slider = document.getElementsByClassName("slider");//seccion que almacena los gifos
+let gifos_box_feature = document.getElementById("gifos-box-feature");//nodo de referencia para clonar
+slider[0].removeChild(gifos_box_feature);//eliminamos el nodo de referencia una vez se haya almacenado su clon
+let num_gifos_slider = 10;//número de gifos a visualizar en el carrusel
+let trending_gifos_array = [];//lista para almacenar los 10 primero gifos junto con sus id
+//al enviarse una promesa, está se demorará en dar entregar el resulado final, hay que tener cuidado con las variables que se modifican dentro de la promesa
+let fetch_gifo_trending = ( fetch(url_trending)
     .then(responese => responese.json())
     .then(gifo_response => {
-        console.log(gifo_response.data[i]);
-        title_gifo[i].innerHTML = gifo_response.data[i].title;
-        user_gifo[i].innerHTML = gifo_response.data[i].user.display_name == "" ? gifo_response.data[i].username : gifo_response.data[i].user.display_name;
-        //ruta para obtener la url del gifo
-        let url_gifo = gifo_response.data[i].images.original.url;
-        gifo_img[i].src = url_gifo;
-    }).catch(message_error => console.log(message_error));
+        for(let i=0; i<num_gifos_slider; i++){
+            //gt == gifos tranding
+            let gifo = new Trending_gifo(gifo_response.data[i], "gifo-trending-"+(i+1), "fav-icon-gt-"+(i+1),"dow-icon-gt-"+(i+1),"full-screen-icon-gt-"+(i+1));
+            trending_gifos_array.push(gifo);
+            gifo_trending(i);
+        }
+        console.log(trending_gifos_array);
+    }).catch(message_error => console.log(message_error))
+);
+let gifo_trending = (i) =>{
+    //clonamos y agregamos el nodo en donde se requiere
+    let gifos_box_clone = gifos_box_feature.cloneNode(true);
+    slider[0].appendChild(gifos_box_clone);
+    //agregamos los datos requeridos para que se visualice los gifos que están almacenados en la lista trending_gifos_array
+    let gifo_img = document.getElementsByClassName("gifo-img");
+    gifo_img[i].src = trending_gifos_array[i].url_gif.images.original.url;
+    let title_gifo = document.getElementsByClassName("title-gifos");
+    title_gifo[i].innerHTML = trending_gifos_array[i].url_gif.title;
+    let user_gifo = document.getElementsByClassName("user-gifos");
+    user_gifo[i].innerHTML = trending_gifos_array[i].url_gif.username == ""? "User": trending_gifos_array[i].url_gif.username;
     
+    //modificamos los id de los nodos que nos servirán para distintas funcionalidades como: favorito,dowlands,full screen
+    gifo_img[i].id = trending_gifos_array[i].id_gif_img;
+    let gifo_fav_icon = document.getElementsByClassName("icon-fav");
+    gifo_fav_icon[i].id = trending_gifos_array[i].id_fav_gif_icon;
+    let gifo_dow_icon = document.getElementsByClassName("icon-download");
+    gifo_dow_icon[i].id = trending_gifos_array[i].id_dow_gif_icon;
+    gifo_fs_icon = document.getElementsByClassName("full-screen-icon");
+    gifo_fs_icon[i].id = trending_gifos_array[i].id_fs_gif_icon;
 }
-slider[0].removeChild(gifos_box_feature);
+//Funcionalidad Full Screen
+let gifoFullScreen =(gifo)=>{
 
+}
 
 //_______Funcionalidad transición slider_______
 //Trasladar slider
 let slider_btn_left = document.getElementById("slider-btn-left");
 let slider_btn_right = document.getElementById("slider-btn-right");
-let gifos_box = document.getElementsByClassName("gifos-box");
 let dist = (357+30);//distancia a recorrer por cada click = ancho del gifo mas margin right
 let dist_2 = 0;//variable para almacenar la diferencia del ancho entre el slider de la pantalla del usuario y la de un monitor 1440
 let position_gifos = [];//lista para almacenar la posición de cada gifo, puede ser de 1 indice pero determinare su longitud dependiendo del número de gifos
-let x = gifos_box.length - 3;//# de veces que se deben desplazar los gifos, son 3 gifos los que se logran ver en el ancho del slider, podría verse como el #de veces que se hará click
+let x = num_gifos_slider - 3;//# de veces que se deben desplazar los gifos, son 3 gifos los que se logran ver en el ancho del slider, podría verse como el #de veces que se hará click
 let max_width_slider_cotainer = 1161;//maximo ancho del slider
-for(let i = 0; i < gifos_box.length; i++){
+for(let i = 0; i < num_gifos_slider; i++){
     position_gifos.push(0); 
 }
 //EVENTO SLIDE DERECHO
@@ -146,9 +172,11 @@ slider_btn_left.addEventListener("click", () =>{
 });
 //FUNCION PARA MOVER EL SLIDE
 let slide_function = (dist) =>{
+    let gifos_box = document.getElementsByClassName("gifos-box");//lo declaro dentro de la función y no afuera por la promesa utilizada anteriormente,
+    //si gifos_box está afuera su longitud sería 1 y no 10, ya que, JS lee primero está variable antes de finalizar las modificaciones sobre ella en la promesa
     for (let i = 0; i<gifos_box.length;i++){
         position_gifos[i] += dist;
         gifos_box[i].style.transform = "translateX("+(position_gifos[i])+"px)";
     }
-    // console.log(position_gifos); // visualizar la posición del gifo
 }
+
