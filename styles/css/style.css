@@ -197,7 +197,7 @@
 .page-container .header-container .menu-container .box-new-gifo .btn-new-gifos-hover {
   display: none;
 }
-.page-container .title {
+.page-container .search-gifos-container .title {
   font-family: "Montserrat", sans-serif;
   font-size: 25px;
   line-height: 33px;
@@ -208,15 +208,13 @@
   color: #572EE5;
   width: 286px;
 }
-.page-container .title .decoration-title {
+.page-container .search-gifos-container .title .decoration-title {
   color: #50E3C2;
   text-transform: uppercase;
 }
-.page-container .search-gifos-container {
-  margin-top: 31px;
-}
 .page-container .search-gifos-container .welcome-img-box {
   margin: auto;
+  margin-top: 31px;
   width: 273px;
   height: 130px;
 }
@@ -360,6 +358,9 @@
   white-space: nowrap;
   overflow: scroll;
 }
+.page-container .trending-gifos-container .gifos-slider-container .slider-container .slider::-webkit-scrollbar {
+  display: none;
+}
 .page-container .trending-gifos-container .gifos-slider-container .slider-container .slider .gifos-box {
   position: relative;
   display: inline-block;
@@ -483,7 +484,7 @@
   .page-container .header-container .show-menu {
     margin-right: 83px;
   }
-  .page-container .title {
+  .page-container .search-gifos-container .title {
     width: 450px;
   }
   .page-container .search-gifos-container .welcome-img-box {
@@ -610,21 +611,22 @@
   .page-container .header-container .menu-container .box-new-gifo:hover .btn-new-gifos-hover {
     display: block;
   }
-  .page-container .title {
+  .page-container .search-gifos-container {
+    margin-top: 76px;
+  }
+  .page-container .search-gifos-container .title {
     font-family: "Montserrat", sans-serif;
     font-size: 35px;
     line-height: 50px;
     font-weight: 700;
     text-align: center;
     letter-spacing: 0;
-    margin: 76px auto 0 auto;
+    margin: auto;
     padding: 0 180px;
     width: 934px;
   }
-  .page-container .search-gifos-container {
-    margin-top: 24px;
-  }
   .page-container .search-gifos-container .welcome-img-box {
+    margin-top: 24px;
     width: 399px;
     height: 190px;
   }

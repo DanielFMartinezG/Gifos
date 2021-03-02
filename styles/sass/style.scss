@@ -214,22 +214,22 @@
             }
         }
     }
-    //__________________ SECCIÓN TITULO____________________
-    .title{
-        @include montserrant-font(25px,33px,700);
-        margin: 7px auto 0 auto;
-        color:#572EE5;
-        width: 286px;
-        .decoration-title{
-            color: #50E3C2;
-            text-transform: uppercase;
-        }
-    }
     //_________________SECCIÓN DE BUSQUEDA DE GIFOS__________
     .search-gifos-container{
-        margin-top: 31px;
+        //__________________ TITULO____________________
+        .title{
+            @include montserrant-font(25px,33px,700);
+            margin: 7px auto 0 auto;
+            color:#572EE5;
+            width: 286px;
+            .decoration-title{
+                color: #50E3C2;
+                text-transform: uppercase;
+            }
+        }
         .welcome-img-box{
             margin: auto;
+            margin-top: 31px;
             width: 273px;
             height: 130px;
             .welcome-img{
@@ -345,6 +345,9 @@
                     height: inherit;
                     white-space: nowrap;//el ancho del slide se determinará dependiendo del número de GIFOS
                     overflow: scroll;//podremos movilizarnos a lo largo del slide del slide-container
+                    &::-webkit-scrollbar {//Desactivamos la visualización del scrollbar
+                        display: none;
+                    }
                     .gifos-box{
                         position: relative;
                         display: inline-block;//Los GIFOS deben comportarse como inline, no en bloque
@@ -459,12 +462,12 @@
             margin-right: 83px;
         }
     }
-    //__________________ SECCIÓN TITULO____________________
-    .title{
-        width: 450px;
-    }
     //_________________SECCIÓN DE BUSQUEDA DE GIFOS__________
     .search-gifos-container{
+        //__________________ TITULO____________________
+        .title{
+            width: 450px;
+        }
         .welcome-img-box{
             width: 330px;
             height: 160px;
@@ -599,17 +602,18 @@
                 }
             }
         }
-        //__________________SECCIÓN TITULO____________________
-        .title{
-            @include montserrant-font(35px,50px,700); 
-            margin: 76px auto 0 auto;
-            padding: 0 180px;
-            width: 934px;
-        }
         //_________________SECCIÓN DE BUSQUEDA DE GIFOS__________        
         .search-gifos-container{
-            margin-top: 24px;
+            margin-top: 76px;
+            //__________________TITULO____________________
+            .title{
+                @include montserrant-font(35px,50px,700); 
+                margin: auto;
+                padding: 0 180px;
+                width: 934px;
+            }
             .welcome-img-box{
+                margin-top: 24px;
                 width: 399px;
                 height: 190px;
             }

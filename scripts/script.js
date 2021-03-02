@@ -70,8 +70,7 @@ night_mode.addEventListener("click", ()=>{
         search_icon[0].src = "./assets/icon-search.svg";
     }
 });
-//Funcionalidad de ver más
-//SE DEBE PRIMERO CREAR LOS CONTENEDORES DE LOS GIFOS ANTES DE ESPECIFICAR LA TRANSICIÓN
+//FUNCIONALIDADES PARA BUSCAR GIFO
 let suggest_box = document.getElementsByClassName("suggest-box");
 let search_box = document.getElementsByClassName("search-box");
 let search_input = document.getElementsByClassName("search-input");
@@ -83,6 +82,13 @@ search_input[0].addEventListener("blur", () =>{
     suggest_box[0].style.display = "none";
     search_box[0].style.borderBottom = "none";
 });
+let searchGifo = (x) =>{
+    results_gifos_section = document.getElementById("results-gifos-section");
+    for(let i=0; i<12;i++){
+        let gifos_box_clone = gifos_box_feature.cloneNode(true);
+        results_gifos_section.appendChild(gifos_box_clone);
+    }
+}
 //_______Funcionalidad GIFOS____________
 //creo una clase para almacentar la url de la información de los gifos del slider, además, los id que me permitirán acceder a ellos al hacer click sobre un icon
 class Trending_gifo {
@@ -110,7 +116,6 @@ let fetch_gifo_trending = ( fetch(url_trending)
             trending_gifos_array.push(gifo);
             gifo_trending(i);
         }
-        console.log(trending_gifos_array);
     }).catch(message_error => console.log(message_error))
 );
 let gifo_trending = (i) =>{
@@ -123,7 +128,7 @@ let gifo_trending = (i) =>{
     let title_gifo = document.getElementsByClassName("title-gifos");
     title_gifo[i].innerHTML = trending_gifos_array[i].url_gif.title;
     let user_gifo = document.getElementsByClassName("user-gifos");
-    user_gifo[i].innerHTML = trending_gifos_array[i].url_gif.username == ""? "User": trending_gifos_array[i].url_gif.username;
+    user_gifo[i].innerHTML = trending_gifos_array[i].url_gif.username == ""? "GIFOS User": trending_gifos_array[i].url_gif.username;
     
     //modificamos los id de los nodos que nos servirán para distintas funcionalidades como: favorito,dowlands,full screen
     gifo_img[i].id = trending_gifos_array[i].id_gif_img;
@@ -134,9 +139,23 @@ let gifo_trending = (i) =>{
     gifo_fs_icon = document.getElementsByClassName("full-screen-icon");
     gifo_fs_icon[i].id = trending_gifos_array[i].id_fs_gif_icon;
 }
-//Funcionalidad Full Screen
-let gifoFullScreen =(gifo)=>{
 
+let full_screen_gifo = document.getElementById("gifo-full-screen");
+let full_screen_user = document.getElementById("user-full-screen");
+let full_screen_title = document.getElementById("title-full-screen");
+//Funcionalidad Full Screen
+let gifoFullScreenMobile =(gifo)=>{
+    let index = trending_gifos_array.findIndex(x => x.id_gif_img == gifo.id);
+    gifo_full_screen(index);
+}
+let gifoFullScreenDesktop =(gifo)=>{
+    let index = trending_gifos_array.findIndex(x => x.id_fs_gif_icon == gifo.id);
+    gifo_full_screen(index);
+}
+let gifo_full_screen = (index)=>{
+    full_screen_gifo.setAttribute("src", trending_gifos_array[index].url_gif.images.original.url)
+    full_screen_user.textContent = trending_gifos_array[index].url_gif.username == ""? "GIFOS User": trending_gifos_array[index].url_gif.username;
+    full_screen_title.textContent = trending_gifos_array[index].url_gif.title;
 }
 
 //_______Funcionalidad transición slider_______

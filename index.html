@@ -29,7 +29,7 @@
                         <img src="./assets/button-slider-left-hover.svg" alt="slider left" class="slider-icon-hover-fs">
                     </div>
                     <!-- IMG GIFO -->
-                    <img src="./assets/gato.png" alt="gif full screen" class="gifo-full-screen">
+                    <img src="./assets/gato.png" alt="gif full screen" class="gifo-full-screen" id="gifo-full-screen">
                     <!--BOTÓN SLIDER DERECHO -->
                     <div class="slider-icon-box-fs btn-right-fs" id="slider-btn-right-fs">
                         <img src="./assets/Button-Slider-right.svg" alt="slider left" class="slider-icon-fs">
@@ -38,8 +38,8 @@
                 </div>
                 <!-- DESCRIPCIÓN DEL GIFO -->
                 <div class="description-full-screen">
-                    <p class="user-full-screen">User</p>
-                    <p class="title-full-screen">Título GIFO</p>
+                    <p class="user-full-screen" id="user-full-screen">User</p>
+                    <p class="title-full-screen" id="title-full-screen">Título GIFO</p>
                 </div>
                     <!-- ICONOS -->
                 <div class="item-full-screen">
@@ -86,10 +86,10 @@
                 </div>
             </div>
         </header>
-        <!--__________________TITULO DE LA PAGINA___________________-->
-        <h1 class="title">Inspírate, busca, guarda, y crea los mejores <span class="decoration-title">gifos</span></h1>
         <!--__________________SECCIÓN DE BUSCAR GIFOS_______________-->
         <section class="search-gifos-container">
+            <!--__________________TITULO DE LA PAGINA___________________-->
+            <h1 class="title">Inspírate, busca, guarda, y crea los mejores <span class="decoration-title">gifos</span></h1>
             <div class="welcome-img-box">
                 <img src="./assets/ilustra_header.svg" class="welcome-img" alt="imagen bienvenida">
             </div>
@@ -98,7 +98,7 @@
                 <div class="search-box">
                     <img src="./assets/icon-search-mod-noc.svg" class="search-icon-active" alt="icono buscador">
                     <input type="text" class="search-input" placeholder="Busca GIFOS y más">
-                    <img src="./assets/icon-search.svg" class="search-icon" alt="icono buscador">
+                    <img src="./assets/icon-search.svg" class="search-icon" alt="icono buscador" id="search-icon" onclick="searchGifo(this)">
                     <img src="./assets/close.svg" class="close-icon" alt="icono buscador">
                 </div>
                 <!--SUGERENCIAS DE RESULTADOS-->
@@ -117,6 +117,13 @@
                 <h3 class="trending-title">Trending:</h3>
                 <p class="trending-content">Reactions, Entertainment, Sports, Stickers, Artists</p>
             </div>
+            <!-- resultadosd de busqueda -->
+            <div class="results-container">
+                <h2 class="results-title"></h2>
+                <div class="results-gifos-section" id="results-gifos-section">
+
+                </div>
+            </div>
         </section>
         <!--__________________SECCIÓN TRENDING GIFOS________________-->
         <section class="trending-gifos-container">
@@ -133,7 +140,7 @@
                     <div class="slider"><!--DIV ENCARGADO DE CONTENER LOS GIFOS Y COMPORTARSE COMO SLIDE, SU ANCHO, SERÁ MUCHO MAYOR AL PADRE-->
                         <div class="gifos-box" id="gifos-box-feature"><!--CONTENEDOR DEL GIF-->
                             <label for="show_full_screen">
-                                <img src="./assets/gato.png" alt="gifs" class="gifo-img" id="gifo-trending"> <!--LINK DEL GIF-->
+                                <img src="./assets/gato.png" alt="gifs" class="gifo-img" id="gifo-trending" onclick="gifoFullScreenMobile(this)"> <!--LINK DEL GIF-->
                             </label>
                             <div class="gifos-box-hover"><!--MENU EMERGENTE MEDIANTE HOVER-->
                                 <div class="icons-gifos-box">
@@ -145,7 +152,7 @@
                                         <img src="./assets/icon-download.svg" alt="descargas icono" class="gifos-icon-normal">
                                         <img src="./assets/icon-download-hover.svg" alt="descargas icono" class="gifos-icon-hover">
                                     </div>
-                                    <div class="gifos-icon full-screen-icon" onclick="gifoFullScreen(this)">
+                                    <div class="gifos-icon full-screen-icon" onclick="gifoFullScreenDesktop(this)">
                                         <label for="show_full_screen">
                                             <img src="./assets/icon-max-normal.svg" alt="max icono" class="gifos-icon-normal">
                                             <img src="./assets/icon-max-hover.svg" alt="max icono" class="gifos-icon-hover">
