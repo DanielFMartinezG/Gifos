@@ -13,6 +13,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="gifos-box " id="gifos-box-feature"><!--CONTENEDOR DEL GIF-->
+        <label for="show_full_screen">
+            <img src="./assets/gato.png" alt="gifs" class="gifo-img" id="gifo-trending" onclick="gifoFullScreenMobile(this)"> <!--LINK DEL GIF-->
+        </label>
+        <div class="gifos-box-hover"><!--MENU EMERGENTE MEDIANTE HOVER-->
+            <div class="icons-gifos-box">
+                <div class="gifos-icon icon-fav">
+                    <img src="./assets/icon-fav.svg" alt="fav icono" class="gifos-icon-normal">
+                    <img src="./assets/icon-fav-hover.svg" alt="fav icono" class="gifos-icon-hover">
+                </div>
+                <div class="gifos-icon icon-download">
+                    <img src="./assets/icon-download.svg" alt="descargas icono" class="gifos-icon-normal">
+                    <img src="./assets/icon-download-hover.svg" alt="descargas icono" class="gifos-icon-hover">
+                </div>
+                <div class="gifos-icon full-screen-icon" onclick="gifoFullScreenDesktop(this)">
+                    <label for="show_full_screen">
+                        <img src="./assets/icon-max-normal.svg" alt="max icono" class="gifos-icon-normal">
+                        <img src="./assets/icon-max-hover.svg" alt="max icono" class="gifos-icon-hover">
+                    </label>
+                </div>
+            </div>
+            <p class="user-gifos">User</p>
+            <p class="title-gifos">Título GIFO</p>
+        </div>
+    </div>
     <div class="page-container">
         <!--____________ SECCIÓN DESTINADA AL FULL SCREEN GIFO_____________ -->
         <input type="checkbox" class="show_full_screen" id="show_full_screen">
@@ -118,11 +143,9 @@
                 <p class="trending-content">Reactions, Entertainment, Sports, Stickers, Artists</p>
             </div>
             <!-- resultadosd de busqueda -->
-            <div class="results-container">
-                <h2 class="results-title"></h2>
-                <div class="results-gifos-section" id="results-gifos-section">
-
-                </div>
+            <div class="results-container" id="results-container">
+                <h2 class="results-title">Mascotas</h2>
+                <div class="results-gifos-section" id="results-gifos-section"></div>
             </div>
         </section>
         <!--__________________SECCIÓN TRENDING GIFOS________________-->
@@ -138,31 +161,6 @@
                 <!--CARRUSEL DE GIFOS-->
                 <div class="slider-container"><!--DIV QUE CONTENDRÁ EL SLIDER CON UN ANCHO ESPECIFICO-->
                     <div class="slider"><!--DIV ENCARGADO DE CONTENER LOS GIFOS Y COMPORTARSE COMO SLIDE, SU ANCHO, SERÁ MUCHO MAYOR AL PADRE-->
-                        <div class="gifos-box" id="gifos-box-feature"><!--CONTENEDOR DEL GIF-->
-                            <label for="show_full_screen">
-                                <img src="./assets/gato.png" alt="gifs" class="gifo-img" id="gifo-trending" onclick="gifoFullScreenMobile(this)"> <!--LINK DEL GIF-->
-                            </label>
-                            <div class="gifos-box-hover"><!--MENU EMERGENTE MEDIANTE HOVER-->
-                                <div class="icons-gifos-box">
-                                    <div class="gifos-icon icon-fav">
-                                        <img src="./assets/icon-fav.svg" alt="fav icono" class="gifos-icon-normal">
-                                        <img src="./assets/icon-fav-hover.svg" alt="fav icono" class="gifos-icon-hover">
-                                    </div>
-                                    <div class="gifos-icon icon-download">
-                                        <img src="./assets/icon-download.svg" alt="descargas icono" class="gifos-icon-normal">
-                                        <img src="./assets/icon-download-hover.svg" alt="descargas icono" class="gifos-icon-hover">
-                                    </div>
-                                    <div class="gifos-icon full-screen-icon" onclick="gifoFullScreenDesktop(this)">
-                                        <label for="show_full_screen">
-                                            <img src="./assets/icon-max-normal.svg" alt="max icono" class="gifos-icon-normal">
-                                            <img src="./assets/icon-max-hover.svg" alt="max icono" class="gifos-icon-hover">
-                                        </label>
-                                    </div>
-                                </div>
-                                <p class="user-gifos">User</p>
-                                <p class="title-gifos">Título GIFO</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!--BOTÓN SLIDER DERECHO -->

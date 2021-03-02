@@ -70,6 +70,11 @@ night_mode.addEventListener("click", ()=>{
         search_icon[0].src = "./assets/icon-search.svg";
     }
 });
+
+// let body_page = document.getElementsByTagName("body")[0];
+let gifos_box_feature = document.getElementById("gifos-box-feature");//nodo de referencia para clonar
+body_page.removeChild(gifos_box_feature);//eliminamos el nodo de referencia una vez se haya almacenado su clon
+
 //FUNCIONALIDADES PARA BUSCAR GIFO
 let suggest_box = document.getElementsByClassName("suggest-box");
 let search_box = document.getElementsByClassName("search-box");
@@ -82,11 +87,17 @@ search_input[0].addEventListener("blur", () =>{
     suggest_box[0].style.display = "none";
     search_box[0].style.borderBottom = "none";
 });
+let num_gifos_results = 0;
+let results_gifos_section = document.getElementById("results-gifos-section");
+let results_container = document.getElementById("results-container");
 let searchGifo = (x) =>{
-    results_gifos_section = document.getElementById("results-gifos-section");
-    for(let i=0; i<12;i++){
-        let gifos_box_clone = gifos_box_feature.cloneNode(true);
-        results_gifos_section.appendChild(gifos_box_clone);
+    results_container.style.display = "block";
+    if(num_gifos_results == 0){
+        for(let i=0; i<12;i++){
+            let gifos_box_clone = gifos_box_feature.cloneNode(true);
+            results_gifos_section.appendChild(gifos_box_clone);
+            num_gifos_results++;
+        }
     }
 }
 //_______Funcionalidad GIFOS____________
@@ -100,10 +111,10 @@ class Trending_gifo {
         this.id_fs_gif_icon = id_fs_gif_icon;//id del icono de full screen de cada gifo
     }
 } 
+
+
 let url_trending = "https://api.giphy.com/v1/gifs/trending?api_key=RaZbdmj1owbBOfIeJgbEEEtEjE3poegE&limit=25&rating=g";//URL TRENDING GIPHY
 let slider = document.getElementsByClassName("slider");//seccion que almacena los gifos
-let gifos_box_feature = document.getElementById("gifos-box-feature");//nodo de referencia para clonar
-slider[0].removeChild(gifos_box_feature);//eliminamos el nodo de referencia una vez se haya almacenado su clon
 let num_gifos_slider = 10;//número de gifos a visualizar en el carrusel
 let trending_gifos_array = [];//lista para almacenar los 10 primero gifos junto con sus id
 //al enviarse una promesa, está se demorará en dar entregar el resulado final, hay que tener cuidado con las variables que se modifican dentro de la promesa
@@ -121,6 +132,7 @@ let fetch_gifo_trending = ( fetch(url_trending)
 let gifo_trending = (i) =>{
     //clonamos y agregamos el nodo en donde se requiere
     let gifos_box_clone = gifos_box_feature.cloneNode(true);
+    gifos_box_clone.classList.toggle("trending-gifo");
     slider[0].appendChild(gifos_box_clone);
     //agregamos los datos requeridos para que se visualice los gifos que están almacenados en la lista trending_gifos_array
     let gifo_img = document.getElementsByClassName("gifo-img");
@@ -191,7 +203,7 @@ slider_btn_left.addEventListener("click", () =>{
 });
 //FUNCION PARA MOVER EL SLIDE
 let slide_function = (dist) =>{
-    let gifos_box = document.getElementsByClassName("gifos-box");//lo declaro dentro de la función y no afuera por la promesa utilizada anteriormente,
+    let gifos_box = document.getElementsByClassName("gifos-box trending-gifo");//lo declaro dentro de la función y no afuera por la promesa utilizada anteriormente,
     //si gifos_box está afuera su longitud sería 1 y no 10, ya que, JS lee primero está variable antes de finalizar las modificaciones sobre ella en la promesa
     for (let i = 0; i<gifos_box.length;i++){
         position_gifos[i] += dist;

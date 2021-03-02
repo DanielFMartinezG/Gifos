@@ -22,6 +22,85 @@
     text-align: center;
     letter-spacing: 0;
 }
+
+.gifos-box{
+    position: relative;
+    display: inline-block;//Los GIFOS deben comportarse como inline, no en bloque
+    margin-left: 21px;
+    margin-bottom: 25px;
+    transition: 0.3s ease-in-out;
+    width: 156px;
+    height: 120px;
+    &.trending-gifo{
+        margin: 0;
+        margin-right: 22px;;
+        width: 243px;
+        height: 187px;
+        .gifos-box-hover{
+            .user-gifos{
+                margin: 139px 0 0 18px;
+                @include roboto-font(15px,18px,400);
+                color: #FFFFFF;
+                text-align: left;
+            }
+            .title-gifos{
+                margin: 6px 0 51px 18px;
+                @include roboto-font(16px,19px,700);
+                color: #FFFFFF;
+                text-align: left;
+            }
+        }
+    }
+    .gifo-img{
+        display: block;// lo convierto en blque para aplicar el position absolute ya que no funciona con elementos tipo inline
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .gifos-box-hover{//div de menú hover
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.6;
+        background: #572EE5;
+        .icons-gifos-box{
+            height: 42px;
+            display: flex;
+            justify-content: flex-end;
+            .gifos-icon{
+                margin: 10px 10px 0 0 ;
+                cursor: pointer;
+                .gifos-icon-hover{
+                    display: none;
+                }
+                &:hover{
+                    .gifos-icon-normal{
+                        display: none;
+                        cursor: pointer;
+                    }
+                    .gifos-icon-hover{
+                        display: block;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .user-gifos{
+            margin: 90px 0 0 13px;
+            @include roboto-font(15px,17px,400);
+            color: #FFFFFF;
+            text-align: left;
+        }
+        .title-gifos{
+            margin: 5px 0 27px 12px;
+            @include roboto-font(16px,19px,700);
+            color: #FFFFFF;
+            text-align: left;
+        }
+    }
+}
+
 .page-container{
     margin: auto;
     max-width: 1440px;
@@ -315,6 +394,18 @@
                 @include montserrant-font(14px,25px,500);
             }
         }
+        .results-container{
+            display: none;
+            margin: 79px auto 34px auto;
+            max-width: 375px;
+            .results-title{
+                margin-bottom: 38px;
+                @include montserrant-font(25px,40px,700);
+                color:#572EE5;
+            }
+            .results-gifos-section{
+            }
+        }
     }
     //__________________SECCIÓN TRENDING GIFOS___________________
     .trending-gifos-container{
@@ -347,62 +438,6 @@
                     overflow: scroll;//podremos movilizarnos a lo largo del slide del slide-container
                     &::-webkit-scrollbar {//Desactivamos la visualización del scrollbar
                         display: none;
-                    }
-                    .gifos-box{
-                        position: relative;
-                        display: inline-block;//Los GIFOS deben comportarse como inline, no en bloque
-                        margin-right: 22px;;
-                        width: 243px;
-                        height: 187px;
-                        transition: 0.3s ease-in-out;
-                        .gifo-img{
-                            display: block;// lo convierto en blque para aplicar el position absolute ya que no funciona con elementos tipo inline
-                            position: absolute;
-                            width: 100%;
-                            height: 100%;
-                        }
-                        .gifos-box-hover{//div de menú hover
-                            display: none;
-                            position: absolute;
-                            width: 100%;
-                            height: 100%;
-                            opacity: 0.6;
-                            background: #572EE5;
-                            .icons-gifos-box{
-                                height: 42px;
-                                display: flex;
-                                justify-content: flex-end;
-                                .gifos-icon{
-                                    margin: 10px 10px 0 0 ;
-                                    cursor: pointer;
-                                    .gifos-icon-hover{
-                                        display: none;
-                                    }
-                                    &:hover{
-                                        .gifos-icon-normal{
-                                            display: none;
-                                            cursor: pointer;
-                                        }
-                                        .gifos-icon-hover{
-                                            display: block;
-                                            cursor: pointer;
-                                        }
-                                    }
-                                }
-                            }
-                            .user-gifos{
-                                margin: 138px 0 0 18px;
-                                @include roboto-font(15px,18px,400);
-                                color: #FFFFFF;
-                                text-align: left;
-                            }
-                            .title-gifos{
-                                margin: 6px 0 51px 18px;
-                                @include roboto-font(16px,19px,700);
-                                color: #FFFFFF;
-                                text-align: left;
-                            }
-                        }
                     }
                 }
             }
@@ -452,43 +487,65 @@
     }
 }
 @media (min-width: 768px){
-.page-container{
-    // _________________-SECCIÓN DE ENCABEZADO________________
-    .header-container{
-        .logo-box{
-            margin-left: 83px;
+    .page-container{
+        // _________________-SECCIÓN DE ENCABEZADO________________
+        .header-container{
+            .logo-box{
+                margin-left: 83px;
+            }
+            .show-menu{
+                margin-right: 83px;
+            }
         }
-        .show-menu{
-            margin-right: 83px;
-        }
-    }
-    //_________________SECCIÓN DE BUSQUEDA DE GIFOS__________
-    .search-gifos-container{
-        //__________________ TITULO____________________
-        .title{
-            width: 450px;
-        }
-        .welcome-img-box{
-            width: 330px;
-            height: 160px;
-        }
-        .search-container{
-            max-width: 420px;
-            .search-box{
-                .search-input{
-                    width: 315px;
+        //_________________SECCIÓN DE BUSQUEDA DE GIFOS__________
+        .search-gifos-container{
+            //__________________ TITULO____________________
+            .title{
+                width: 450px;
+            }
+            .welcome-img-box{
+                width: 330px;
+                height: 160px;
+            }
+            .search-container{
+                max-width: 420px;
+                .search-box{
+                    .search-input{
+                        width: 315px;
+                    }
                 }
             }
-        }
-        .trending-box{
-            .trending-content{
-                max-width: 300px;
+            .trending-box{
+                .trending-content{
+                    max-width: 300px;
+                }
+            }
+            .results-container{
+                max-width: 729px;
             }
         }
     }
 }
-}
 @media (min-width: 1024px){
+    .gifos-box{
+        margin-left: 29px;
+        margin-bottom: 28px;
+        width: 260px;
+        height: 200px;
+        &.trending-gifo{
+            margin-right: 30px;
+            width: 357px;
+            height: 275px;
+            &:last-child{
+                margin: 0;
+            }
+        }
+        &:hover{
+            .gifos-box-hover{
+            display: block;
+            }
+        }
+    }
     .page-container{
         //______________-FULL SCREEN GIFOS______________
         .full-screen-section{
@@ -638,6 +695,17 @@
                     max-width: 402px;
                 }
             }
+            .results-container{
+                margin: 137px auto 60px auto;
+                max-width: 1185px;
+                .results-title{
+                    margin-bottom: 38px;
+                    @include montserrant-font(35px,30px,700);
+                    color:#572EE5;
+                }
+                .results-gifos-section{
+                }
+            }
         }
         //__________________SECCIÓN TRENDING GIFOS___________________
         .trending-gifos-container{
@@ -670,19 +738,6 @@
                     .slider{
                         height: 275px;
                         overflow: hidden;
-                        .gifos-box{
-                            margin-right: 30px;
-                            width: 357px;
-                            height: 275px;
-                            &:last-child{
-                                margin: 0;
-                            }
-                            &:hover{
-                                .gifos-box-hover{
-                                display: block;
-                                }
-                            }
-                        }
                     }
                 }
                 .slider-icon-box{
