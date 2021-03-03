@@ -7,8 +7,8 @@
 }
 
 .gifos-box {
+  display: none;
   position: relative;
-  display: inline-block;
   margin-left: 21px;
   margin-bottom: 25px;
   transition: 0.3s ease-in-out;

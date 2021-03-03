@@ -26,6 +26,7 @@ let fetch_gifo_trending =() => {
 let gifo_trending = (i) =>{
     //clonamos y agregamos el nodo en donde se requiere
     let gifos_box_clone = gifos_box_feature.cloneNode(true);
+    gifos_box_clone.style.display = "inline-block";
     gifos_box_clone.classList.toggle("trending-gifo");
     slider[0].appendChild(gifos_box_clone);
     //agregamos los datos requeridos para que se visualice los gifos que están almacenados en la lista trending_gifos_array

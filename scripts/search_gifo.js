@@ -12,6 +12,7 @@ let searchGifo = (x) =>{
     if(num_gifos_results == 0){
         for(let i=0; i<12;i++){
             let gifos_box_clone = gifos_box_feature.cloneNode(true);
+            gifos_box_clone.style.display = "inline-block";
             results_gifos_section.appendChild(gifos_box_clone);
             num_gifos_results++;
         }

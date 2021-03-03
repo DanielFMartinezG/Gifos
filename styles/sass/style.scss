@@ -24,8 +24,8 @@
 }
 //BOX FEATURE QUE DE LAS GIFOS CARDS
 .gifos-box{
+    display: none;
     position: relative;
-    display: inline-block;//Los GIFOS deben comportarse como inline, no en bloque
     margin-left: 21px;
     margin-bottom: 25px;
     transition: 0.3s ease-in-out;
