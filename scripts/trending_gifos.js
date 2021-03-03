@@ -25,7 +25,7 @@ let fetch_gifo_trending =() => {
 //Función para crear el nuevo nodo con su GIF y IDs respestivos en el carrusel
 let gifo_trending = (i) =>{
     //clonamos y agregamos el nodo en donde se requiere
-    let gifos_box_clone = gifos_box_feature.cloneNode(true);
+    let gifos_box_clone = gifos_box_template.cloneNode(true);
     gifos_box_clone.style.display = "inline-block";
     gifos_box_clone.classList.toggle("trending-gifo");
     slider[0].appendChild(gifos_box_clone);

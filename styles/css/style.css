@@ -356,15 +356,22 @@
 .page-container .search-gifos-container .search-container .search-box .search-input:focus {
   outline: none;
 }
-.page-container .search-gifos-container .search-container .search-box .search-icon, .page-container .search-gifos-container .search-container .search-box .close-icon {
+.page-container .search-gifos-container .search-container .search-box .search-icon {
   position: absolute;
   right: 0px;
   margin: 15px 0 15px 0px;
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 .page-container .search-gifos-container .search-container .search-box .close-icon {
+  position: absolute;
+  right: 0px;
+  margin: 18px 0 15px 0px;
+  width: 14px;
+  height: 14px;
   display: none;
+  cursor: pointer;
 }
 .page-container .search-gifos-container .search-container .suggest-box {
   display: none;
@@ -376,6 +383,7 @@
   height: 16px;
 }
 .page-container .search-gifos-container .search-container .suggest-box .suggest-item .suggest {
+  display: inline-block;
   margin: 10px 0 0 15px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -384,7 +392,8 @@
   text-align: center;
   letter-spacing: 0;
   color: #9CAFC3;
-  display: inline-block;
+  width: 80%;
+  text-align: left;
 }
 .page-container .search-gifos-container .search-container .suggest-box .suggest-item:last-child {
   margin-bottom: 18px;
@@ -701,6 +710,9 @@
   }
   .page-container .search-gifos-container .search-container .search-box .search-input {
     width: 450px;
+  }
+  .page-container .search-gifos-container .search-container .suggest-box .suggest-item .suggest {
+    width: 85%;
   }
   .page-container .search-gifos-container .trending-box {
     margin-top: 73px;

@@ -349,15 +349,22 @@
                         outline: none;//desactivamos el borde cuando se realiza focus en el input
                     }
                 }
-                .search-icon, .close-icon{
+                .search-icon{
                     position: absolute;
                     right: 0px;
                     margin: 15px 0 15px 0px;
                     width: 20px;
                     height: 20px;
+                    cursor: pointer;
                 }
                 .close-icon{
+                    position: absolute;
+                    right: 0px;
+                    margin: 18px 0 15px 0px;
+                    width: 14px;
+                    height: 14px;
                     display: none;
+                    cursor: pointer;
                 }
             }
             .suggest-box{
@@ -370,10 +377,12 @@
                         height: 16px;
                     }
                     .suggest{
+                        display: inline-block;
                         margin: 10px 0 0 15px;
                         @include roboto-font(16px,16px,400);
                         color: #9CAFC3;
-                        display: inline-block;
+                        width: 80%;
+                        text-align: left;
                     }
                     &:last-child{
                         margin-bottom: 18px;
@@ -679,6 +688,13 @@
                 .search-box{
                     .search-input{
                         width: 450px;
+                    }
+                }
+                .suggest-box{
+                    .suggest-item{
+                        .suggest{
+                            width: 85%;
+                        }
                     }
                 }
             }

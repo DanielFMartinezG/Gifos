@@ -1,10 +1,15 @@
+//las variables relacionadas al dom se irán actualizando si los nodos son modificados despues de ser llamados
+
 //_______________________PROCESOS A REALIZAR AL CARGAR LA PAGINA__________________________________ 
 window.onload = function() {
-    body_page.removeChild(gifos_box_feature);//eliminamos el nodo de referencia una vez se haya almacenado su clon
+    body_page.removeChild(gifos_box_template);//eliminamos el nodo de referencia una vez se haya almacenado su clon
+    suggest_box[0].removeChild(suggest_item_template);
     fetch_gifo_trending();
 }   
+//_________________________________API KEY GIPHY_____________________________________________
+let api_key = "api_key=RaZbdmj1owbBOfIeJgbEEEtEjE3poegE";
 //_________________________________NODO GIFOS CARDS____________________________________________
-let gifos_box_feature = document.getElementById("gifos-box-feature");//nodo de referencia para clonar
+let gifos_box_template = document.getElementById("gifos-box-template");//nodo de referencia para clonar
 //_________________________________NODOS DEL FULL SCREEN_______________________________________
 let full_screen_gifo = document.getElementById("gifo-full-screen");
 let full_screen_user = document.getElementById("user-full-screen");
@@ -26,16 +31,23 @@ let btn_slider = document.getElementsByClassName("slider-icon");//nodo de botone
 let btn_slider_fs = document.getElementsByClassName("slider-icon-fs");//nodo de botones slider full screen
 let btn_slider_hover = document.getElementsByClassName("slider-icon-hover");//nodo de botones de slider hover
 let btn_slider_hover_fs = document.getElementsByClassName("slider-icon-hover-fs");//nodo de botones slider hover full screen
-let search_icon = document.getElementsByClassName("search-icon");//nodo del icono de twitter
+let search_icon = document.getElementsByClassName("search-icon");//nodo del icono de busqueda
 //_________________________________SEARCH GIFOS____________________________________________________
+let search_container = document.getElementsByClassName("search-container");//nodo contenedor de los nodo de busqueda y sugerencias
+let search_box = document.getElementsByClassName("search-box");//nodo contenedor de la caja de busqueda
+let search_icon_active = document.getElementsByClassName("search-icon-active");
+let close_suggest_icon = document.getElementById("close-suggest-icon");//nodo icono de cerrar lista se sugerencias
+let search_input = document.getElementsByClassName("search-input");//nodo input de caja de busqueda
 let suggest_box = document.getElementsByClassName("suggest-box");//nodo de sugerencias de busqueda
-let search_box = document.getElementsByClassName("search-box");//nodo input de caja de busqueda
-let search_input = document.getElementsByClassName("search-input");
-let num_gifos_results = 0;
-let results_gifos_section = document.getElementById("results-gifos-section");
-let results_container = document.getElementById("results-container");
+let suggest_item_template = document.getElementById("suggest-item-template");//nodo de plantilla para las sugerencias
+let suggest_item = document.getElementsByClassName("suggest-item");
+let suggest_content = document.getElementsByClassName("suggest");//nodo del nombre de la sugerencia
+let num_gifos_results = 0;//variable para controlar el número de cards a agregar al hacer click en buscar
+let results_container = document.getElementById("results-container");//nodo del conenedor de resultados de busqueda
+let results_gifos_section = document.getElementById("results-gifos-section");//nodo donde se almacenarán los card gifos
+let key_code_enter = 13;// key code de la tecla enter
 //_________________________________TRENDING GIFOS____________________________________________________
-let url_trending = "https://api.giphy.com/v1/gifs/trending?api_key=RaZbdmj1owbBOfIeJgbEEEtEjE3poegE&limit=25&rating=g";//URL TRENDING GIPHY
+let url_trending = "https://api.giphy.com/v1/gifs/trending?"+ api_key;
 let slider = document.getElementsByClassName("slider");//seccion que almacena los gifos
 let num_gifos_slider = 10;//número de gifos a visualizar en el carrusel
 let trending_gifos_array = [];//lista para almacenar los 10 primero gifos junto con sus id, resultado del request

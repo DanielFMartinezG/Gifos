@@ -14,7 +14,8 @@
 </head>
 <body>
     <!-- NODO DE REFERENCIA PARA LOS GIFOS CARDS -->
-    <div class="gifos-box " id="gifos-box-feature"><!--CONTENEDOR DEL GIF-->
+    <!--CONTENEDOR DEL GIF-->
+    <div class="gifos-box " id="gifos-box-template">
         <label for="show_full_screen">
             <img src="./assets/gato.png" alt="gifs" class="gifo-img" id="gifo-trending" onclick="gifoFullScreenMobile(this)"> <!--LINK DEL GIF-->
         </label>
@@ -125,18 +126,14 @@
                 <div class="search-box">
                     <img src="./assets/icon-search-mod-noc.svg" class="search-icon-active" alt="icono buscador">
                     <input type="text" class="search-input" placeholder="Busca GIFOS y más">
-                    <img src="./assets/icon-search.svg" class="search-icon" alt="icono buscador" id="search-icon" onclick="searchGifo(this)">
-                    <img src="./assets/close.svg" class="close-icon" alt="icono buscador">
+                    <img src="./assets/icon-search.svg" class="search-icon" alt="icono buscador" id="search-icon">
+                    <img src="./assets/close.svg" class="close-icon" alt="icono buscador" id="close-suggest-icon">
                 </div>
                 <!--SUGERENCIAS DE RESULTADOS-->
                 <div class="suggest-box">
-                    <div class="suggest-item">
+                    <div class="suggest-item" id="suggest-item-template">
                         <img src="./assets/icon-search-mod-noc.svg" class="search-icon-suggest" alt="icono buscador">
-                        <div class="suggest">Sugerencia 1</div>
-                    </div>
-                    <div class="suggest-item">
-                        <img src="./assets/icon-search-mod-noc.svg" class="search-icon-suggest" alt="icono buscador">
-                        <div class="suggest">Sugerencia 2</div>
+                        <div class="suggest" onclick="selectSuggest(this)">Sugerencia 1</div>
                     </div>
                 </div>
             </div>
