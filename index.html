@@ -17,7 +17,7 @@
     <!--CONTENEDOR DEL GIF-->
     <div class="gifos-box " id="gifos-box-template">
         <label for="show_full_screen">
-            <img src="./assets/gato.png" alt="gifs" class="gifo-img" id="gifo-trending" onclick="gifoFullScreenMobile(this)"> <!--LINK DEL GIF-->
+            <img src="./assets/gato.png" alt="gifs" class="gifo-img" id="gifo-img" onclick="gifoFullScreenMobile(this)"> <!--LINK DEL GIF-->
         </label>
         <div class="gifos-box-hover"><!--MENU EMERGENTE MEDIANTE HOVER-->
             <div class="icons-gifos-box">
@@ -98,12 +98,10 @@
                     <div class="btn_menu" id="btn_night_mode">modo nocturno</div>
                     <hr class="menu-item-line">
                 </div>
-                <a href="./links/index-fav.html">
-                    <div class="menu-item favourite-item">
-                        <div class="btn_menu">favoritos</div>
-                        <hr class="menu-item-line">
-                    </div>
-                </a>
+                <div class="menu-item favourite-item">
+                    <div class="btn_menu">favoritos</div>
+                    <hr class="menu-item-line">
+                </div>
                 <div class="menu-item mygifos-item">
                     <div class="btn_menu">mis gifos</div>
                     <hr class="menu-item-line">
@@ -143,8 +141,9 @@
             </div>
             <!-- resultadosd de busqueda -->
             <div class="results-container" id="results-container">
-                <h2 class="results-title">Mascotas</h2>
+                <h2 class="results-title"></h2>
                 <div class="results-gifos-section" id="results-gifos-section"></div>
+                <div class="see-more-button" id="see-more-button">VER MÁS</div>
             </div>
         </section>
         <!--__________________SECCIÓN TRENDING GIFOS________________-->

@@ -411,8 +411,20 @@
                 margin-bottom: 38px;
                 @include montserrant-font(25px,40px,700);
                 color:#572EE5;
+                text-transform: uppercase;
             }
             .results-gifos-section{
+            }
+            .see-more-button{
+                margin: auto;
+                border: 1px solid #572EE5;
+                border-radius: 25px;
+                width: 127px;
+                height: 50px;
+                text-align: center;
+                @include montserrant-font(13px,50px,700 );
+                color: #572EE5;
+                cursor: pointer;
             }
         }
     }

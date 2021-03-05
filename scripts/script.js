@@ -45,6 +45,8 @@ let suggest_content = document.getElementsByClassName("suggest");//nodo del nomb
 let num_gifos_results = 0;//variable para controlar el número de cards a agregar al hacer click en buscar
 let results_container = document.getElementById("results-container");//nodo del conenedor de resultados de busqueda
 let results_gifos_section = document.getElementById("results-gifos-section");//nodo donde se almacenarán los card gifos
+let gifos_box_searched = document.getElementsByClassName("gifo-searched");//nodo que referencia a los gifos encontrados
+let gifos_searched_array = [];//lista para almacenar la información de los gifos junto con sus id, resultado del request
 let key_code_enter = 13;// key code de la tecla enter
 //_________________________________TRENDING GIFOS____________________________________________________
 let url_trending = "https://api.giphy.com/v1/gifs/trending?"+ api_key;

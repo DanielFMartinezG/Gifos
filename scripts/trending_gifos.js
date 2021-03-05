@@ -47,19 +47,30 @@ let gifo_trending = (i) =>{
 }
 
 //______________________________________FUNCIONALIDADES FULL SCREEN TRENDING_________________________________________________
+//utilizo la parte string de los nombres de los id para verificar desde donde se está llamando
 
 let gifoFullScreenMobile =(gifo)=>{//Funcionalidad full screen mobile, depende del id_image
-    let index = trending_gifos_array.findIndex(x => x.id_gif_img == gifo.id);
-    gifo_full_screen(index);
+    if(gifo.id.slice(0,13) == "gifo-trending"){//identificamos si pertenece al trending
+        let index = trending_gifos_array.findIndex(x => x.id_gif_img == gifo.id);
+        gifo_full_screen(index,trending_gifos_array);
+    }else if(gifo.id.slice(0,11) == "gifo-search"){//identificamos si pertenece a search
+        let index = gifos_searched_array.findIndex(x => x.id_gif_img == gifo.id);
+        gifo_full_screen(index,gifos_searched_array);
+    }
 }
 let gifoFullScreenDesktop =(gifo)=>{//Funcionalidad full screen desktop, depente del id del botón full screen
-    let index = trending_gifos_array.findIndex(x => x.id_fs_gif_icon == gifo.id);
-    gifo_full_screen(index);
+    if(gifo.id.slice(0,19) == "full-screen-icon-gt"){//identificamos si pertenece al trending
+        let index = trending_gifos_array.findIndex(x => x.id_fs_gif_icon == gifo.id);
+        gifo_full_screen(index,trending_gifos_array);
+    }else if(gifo.id.slice(0,19) == "full-screen-icon-gs"){//identificamos si pertenece a search
+        let index = gifos_searched_array.findIndex(x => x.id_fs_gif_icon == gifo.id);
+        gifo_full_screen(index,gifos_searched_array);
+    }
 }
-let gifo_full_screen = (index)=>{//Función para enviar info al full screen
-    full_screen_gifo.setAttribute("src", trending_gifos_array[index].url_gif.images.original.url)
-    full_screen_user.textContent = trending_gifos_array[index].url_gif.username == ""? "GIFOS User": trending_gifos_array[index].url_gif.username;
-    full_screen_title.textContent = trending_gifos_array[index].url_gif.title;
+let gifo_full_screen = (index, gifos_list)=>{//Función para enviar info al full screen
+    full_screen_gifo.setAttribute("src", gifos_list[index].url_gif.images.original.url)
+    full_screen_user.textContent = gifos_list[index].url_gif.username == ""? "GIFOS User": gifos_list[index].url_gif.username;
+    full_screen_title.textContent = gifos_list[index].url_gif.title;
 }
 
 //_____________________________________FUNCIONALIDAD TRANSICIÓN DEL SLIDER TRENDING________________________________________
