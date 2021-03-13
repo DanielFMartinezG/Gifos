@@ -1,22 +1,13 @@
 //_________________________________FUNCIONALIDAD PARA CREAR LOS GIFS CARDS DEL TRENDING_____________________
 
-//creo una clase para almacentar la url de la información de los gifos del slider, además, los id que me permitirán acceder a ellos al hacer click sobre un icon
-class Trending_gifo {
-    constructor(url_gif, id_gif_img, id_fav_gif_icon, id_dow_gif_icon, id_fs_gif_icon){
-        this.url_gif = url_gif;//url de la información del gifo en una posición especifica
-        this.id_gif_img = id_gif_img;//id de la imagen que almacena el gifo
-        this.id_fav_gif_icon = id_fav_gif_icon;//id del icono de favoritos de cada gifo
-        this.id_dow_gif_icon = id_dow_gif_icon;//id del icono de dowlands de cada gifo
-        this.id_fs_gif_icon = id_fs_gif_icon;//id del icono de full screen de cada gifo
-    }
-} 
 //realizamos el request y almacenamos el resultado de la promesa en la lista trending_gifos_array
 let fetch_gifo_trending =() => {
     fetch(url_trending)
     .then(responese => responese.json())
     .then(gifo_response => {
+        // console.log(gifo_response.data[0]);
         for(let i=0; i<num_gifos_slider; i++){
-            let gifo = new Trending_gifo(gifo_response.data[i], "gifo-trending-"+(i+1), "fav-icon-gt-"+(i+1),"dow-icon-gt-"+(i+1),"full-screen-icon-gt-"+(i+1));
+            let gifo = new New_gifo(gifo_response.data[i], "gifo-trending-"+(i+1), "fav-icon-gt-"+(i+1),"fav-icon-act-gt-"+(i+1),"dow-icon-gt-"+(i+1),"full-screen-icon-gt-"+(i+1));
             trending_gifos_array.push(gifo);
             gifo_trending(i);
         }
@@ -24,55 +15,8 @@ let fetch_gifo_trending =() => {
 }
 //Función para crear el nuevo nodo con su GIF y IDs respestivos en el carrusel
 let gifo_trending = (i) =>{
-    //clonamos y agregamos el nodo en donde se requiere
-    let gifos_box_clone = gifos_box_template.cloneNode(true);
-    gifos_box_clone.style.display = "inline-block";
-    gifos_box_clone.classList.toggle("trending-gifo");
-    slider[0].appendChild(gifos_box_clone);
-    //agregamos los datos requeridos para que se visualice los gifos que están almacenados en la lista trending_gifos_array
-    let gifo_img = document.getElementsByClassName("gifo-img");
-    gifo_img[i].src = trending_gifos_array[i].url_gif.images.original.url;
-    let title_gifo = document.getElementsByClassName("title-gifos");
-    title_gifo[i].innerHTML = trending_gifos_array[i].url_gif.title;
-    let user_gifo = document.getElementsByClassName("user-gifos");
-    user_gifo[i].innerHTML = trending_gifos_array[i].url_gif.username == ""? "GIFOS User": trending_gifos_array[i].url_gif.username;
-    //modificamos los id de los nodos que nos servirán para distintas funcionalidades como: favorito,dowlands,full screen
-    gifo_img[i].id = trending_gifos_array[i].id_gif_img;
-    let gifo_fav_icon = document.getElementsByClassName("icon-fav");
-    gifo_fav_icon[i].id = trending_gifos_array[i].id_fav_gif_icon;
-    let gifo_dow_icon = document.getElementsByClassName("icon-download");
-    gifo_dow_icon[i].id = trending_gifos_array[i].id_dow_gif_icon;
-    gifo_fs_icon = document.getElementsByClassName("full-screen-icon");
-    gifo_fs_icon[i].id = trending_gifos_array[i].id_fs_gif_icon;
+    add_gifo_card(slider[0],"trending-gifo",trending_gifos_array,i);
 }
-
-//______________________________________FUNCIONALIDADES FULL SCREEN TRENDING_________________________________________________
-//utilizo la parte string de los nombres de los id para verificar desde donde se está llamando
-
-let gifoFullScreenMobile =(gifo)=>{//Funcionalidad full screen mobile, depende del id_image
-    if(gifo.id.slice(0,13) == "gifo-trending"){//identificamos si pertenece al trending
-        let index = trending_gifos_array.findIndex(x => x.id_gif_img == gifo.id);
-        gifo_full_screen(index,trending_gifos_array);
-    }else if(gifo.id.slice(0,11) == "gifo-search"){//identificamos si pertenece a search
-        let index = gifos_searched_array.findIndex(x => x.id_gif_img == gifo.id);
-        gifo_full_screen(index,gifos_searched_array);
-    }
-}
-let gifoFullScreenDesktop =(gifo)=>{//Funcionalidad full screen desktop, depente del id del botón full screen
-    if(gifo.id.slice(0,19) == "full-screen-icon-gt"){//identificamos si pertenece al trending
-        let index = trending_gifos_array.findIndex(x => x.id_fs_gif_icon == gifo.id);
-        gifo_full_screen(index,trending_gifos_array);
-    }else if(gifo.id.slice(0,19) == "full-screen-icon-gs"){//identificamos si pertenece a search
-        let index = gifos_searched_array.findIndex(x => x.id_fs_gif_icon == gifo.id);
-        gifo_full_screen(index,gifos_searched_array);
-    }
-}
-let gifo_full_screen = (index, gifos_list)=>{//Función para enviar info al full screen
-    full_screen_gifo.setAttribute("src", gifos_list[index].url_gif.images.original.url)
-    full_screen_user.textContent = gifos_list[index].url_gif.username == ""? "GIFOS User": gifos_list[index].url_gif.username;
-    full_screen_title.textContent = gifos_list[index].url_gif.title;
-}
-
 //_____________________________________FUNCIONALIDAD TRANSICIÓN DEL SLIDER TRENDING________________________________________
 
 //agregamos los index en la lista encargada de almacenar las posiciónes de los card gifos

@@ -13,24 +13,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- NODO DE REFERENCIA PARA LOS GIFOS CARDS -->
-    <!--CONTENEDOR DEL GIF-->
+    <!--_________________________GIF CARD TEMPLATE, NODO DE REFERENCIA PARA LOS GIFOS CARDS_________________________ -->
     <div class="gifos-box " id="gifos-box-template">
-        <label for="show_full_screen">
+        <label for="show_full_screen"> <!--concetar con el input de full screen-->
             <img src="./assets/gato.png" alt="gifs" class="gifo-img" id="gifo-img" onclick="gifoFullScreenMobile(this)"> <!--LINK DEL GIF-->
         </label>
         <div class="gifos-box-hover"><!--MENU EMERGENTE MEDIANTE HOVER-->
             <div class="icons-gifos-box">
-                <div class="gifos-icon icon-fav">
+                <div class="gifos-icon fav-icon-activate"><!--Icono de favoritos activado-->
+                    <img src="./assets/icon-fav-base.svg" alt="fav icono" class="gifos-icon-base">
+                    <img src="./assets/icon-fav-active.svg" alt="fav icono" class="gifos-icon-activate">
+                </div>
+                <div class="gifos-icon icon-fav" onclick="addFavoriteGifo(this)"><!--Icono de favoritos normal-->
                     <img src="./assets/icon-fav.svg" alt="fav icono" class="gifos-icon-normal">
                     <img src="./assets/icon-fav-hover.svg" alt="fav icono" class="gifos-icon-hover">
                 </div>
-                <div class="gifos-icon icon-download">
+                <div class="gifos-icon icon-download"><!--Icono de descarga-->
                     <img src="./assets/icon-download.svg" alt="descargas icono" class="gifos-icon-normal">
                     <img src="./assets/icon-download-hover.svg" alt="descargas icono" class="gifos-icon-hover">
                 </div>
-                <div class="gifos-icon full-screen-icon" onclick="gifoFullScreenDesktop(this)">
-                    <label for="show_full_screen">
+                <div class="gifos-icon full-screen-icon" onclick="gifoFullScreenDesktop(this)"><!--Icono de full screen-->
+                    <label for="show_full_screen"><!--concetar con el input de full screen-->
                         <img src="./assets/icon-max-normal.svg" alt="max icono" class="gifos-icon-normal">
                         <img src="./assets/icon-max-hover.svg" alt="max icono" class="gifos-icon-hover">
                     </label>
@@ -40,12 +43,13 @@
             <p class="title-gifos">Título GIFO</p>
         </div>
     </div>
-    <!-- CONTENEDOR DE LA PAGÍNA -->
-    <div class="page-container">
-        <!--____________ SECCIÓN DESTINADA AL FULL SCREEN GIFO_____________ -->
+    <!--_____________________________________CONTENEDOR DE LA PAGÍNA__________________________________________________ -->
+    <section class="page-container">
+        <!--_____________________________ SECCIÓN DESTINADA AL FULL SCREEN GIFO_____________________________________ -->
         <input type="checkbox" class="show_full_screen" id="show_full_screen">
         <section class="full-screen-section">
             <div class="full-screen-container">
+                <!-- CERRAR FULL SCREEN -->
                 <label for="show_full_screen">
                     <img src="./assets/close.svg" alt="close gifo" class="close-gifo-full-screen" id="close-full-screen">
                 </label>
@@ -69,41 +73,49 @@
                     <p class="user-full-screen" id="user-full-screen">User</p>
                     <p class="title-full-screen" id="title-full-screen">Título GIFO</p>
                 </div>
-                    <!-- ICONOS -->
-                <div class="item-full-screen">
-                    <img src="./assets/icon-fav.svg" alt="" class="fs-icon-normal item-gifo-fs">
-                    <img src="./assets/icon-fav-active.svg" alt="" class="fs-icon-activate item-gifo-fs">
+                <!-- ICONOS -->
+                <div class="item-full-screen fs-fav-act-box">
+                    <img src="./assets/icon-fav-base.svg" alt="fav icono" class="item-gifo-fs fs-fav-act-base">
+                    <img src="./assets/icon-fav-active.svg" alt="fav icono" class="fs-fav-act-icon">
                 </div>
-                <div class="item-full-screen">
+                <div class="item-full-screen icon-fav-full-screen" onclick="addFavoriteGifo(this)">
+                    <img src="./assets/icon-fav.svg" alt="" class="fs-icon-normal item-gifo-fs">
+                    <img src="./assets/icon-fav-hover.svg" alt="" class="fs-icon-hover item-gifo-fs">
+                </div>
+                <div class="item-full-screen icon-dow-full-screen">
                     <img src="./assets/icon-download.svg" alt="" class="fs-icon-normal item-gifo-fs">
                     <img src="./assets/icon-download-hover.svg" alt="" class="fs-icon-hover item-gifo-fs">
                 </div>
             </div>
         </section>
-        <!--_________________LINEA TOP________________-->
+        <!--________________________________________LINEA TOP__________________________________________________---->
         <hr class="line-decoration">
-        <!--_________________-SECCIÓN DE ENCABEZADO________________-->
+        <!--________________________________-SECCIÓN DE ENCABEZADO_____________________________________________-->
         <header class="header-container">
-            <div class="logo-box">
+            <!-- Logo de la pagina -->
+            <div class="logo-box" id="logo-gifos">
                 <img src="./assets/logo-desktop.svg" alt="Logo de gifos" class="logo">
             </div>
+            <!-- input del menú desplegable -->
             <input type="checkbox" class="checkbox-menu" id="show-header-menu">
-            
+            <!-- menu hamburguesa -->
             <label class="show-menu" id="show-menu" for="show-header-menu">
                 <img src="./assets/burger.svg" class="burguer-menu" alt="menú hamburguesa">
                 <img src="./assets/close.svg" class="close-menu" alt="cerrar menú">
             </label>
+            <!-- menu de opciones  -->
             <div class="menu-container">
                 <div class="menu-item night-item">
+                    <!-- colocar el id en el div y no en las letras -->
                     <div class="btn_menu" id="btn_night_mode">modo nocturno</div>
                     <hr class="menu-item-line">
                 </div>
-                <div class="menu-item favourite-item">
+                <div class="menu-item favourite-item" id="favourite-item-menu">
                     <div class="btn_menu">favoritos</div>
                     <hr class="menu-item-line">
                 </div>
                 <div class="menu-item mygifos-item">
-                    <div class="btn_menu">mis gifos</div>
+                    <div class="btn_menu" id="btn_my_gifos">mis gifos</div>
                     <hr class="menu-item-line">
                 </div>
                 <div class="box-new-gifo">
@@ -112,44 +124,70 @@
                 </div>
             </div>
         </header>
-        <!--__________________SECCIÓN DE BUSCAR GIFOS_______________-->
+        <!--________________________________SECCIÓN DE BUSCAR GIFOS______________________________________________-->
         <section class="search-gifos-container">
-            <!--__________________TITULO DE LA PAGINA___________________-->
+            <!--TITULO DE LA PAGINA-->
             <h1 class="title">Inspírate, busca, guarda, y crea los mejores <span class="decoration-title">gifos</span></h1>
+            <!-- Imagen de bienvenida -->
             <div class="welcome-img-box">
                 <img src="./assets/ilustra_header.svg" class="welcome-img" alt="imagen bienvenida">
             </div>
+            <!-- caja para busqueda -->
             <div class="search-container">
-                <!--CAJA PARA BUSQUEDA-->
+                <!-- Ingresar busqueda -->
                 <div class="search-box">
                     <img src="./assets/icon-search-mod-noc.svg" class="search-icon-active" alt="icono buscador">
                     <input type="text" class="search-input" placeholder="Busca GIFOS y más">
                     <img src="./assets/icon-search.svg" class="search-icon" alt="icono buscador" id="search-icon">
                     <img src="./assets/close.svg" class="close-icon" alt="icono buscador" id="close-suggest-icon">
                 </div>
-                <!--SUGERENCIAS DE RESULTADOS-->
+                <!--Caja de sugerencia de resultados-->
                 <div class="suggest-box">
+                    <!-- template de sugerencia -->
                     <div class="suggest-item" id="suggest-item-template">
                         <img src="./assets/icon-search-mod-noc.svg" class="search-icon-suggest" alt="icono buscador">
                         <div class="suggest" onclick="selectSuggest(this)">Sugerencia 1</div>
                     </div>
                 </div>
             </div>
+            <!-- Tendencias -->
             <div class="trending-box">
                 <h3 class="trending-title">Trending:</h3>
                 <p class="trending-content">Reactions, Entertainment, Sports, Stickers, Artists</p>
+            </div>
+            <!-- Busqueda sin resultados -->
+            <div class="search-without-result-container">
+                <h2 class="search-without-result-title">Lorem Ipsum</h2>
+                <img src="./assets/icon-busqueda-sin-resultado.svg" alt="sin resultados" class="search-without-result-img">
+                <p class="search-without-result-content">Intenta con otra búsqueda.</p>
             </div>
             <!-- resultadosd de busqueda -->
             <div class="results-container" id="results-container">
                 <h2 class="results-title"></h2>
                 <div class="results-gifos-section" id="results-gifos-section"></div>
-                <div class="see-more-button" id="see-more-button">VER MÁS</div>
+                <div class="button-gifo" id="see-more-button-search">VER MÁS</div>
             </div>
         </section>
-        <!--__________________SECCIÓN TRENDING GIFOS________________-->
+        <!--_____________________________SECCIÓN DE FAVORITOS GIFOS________________________________________________-->
+        <section class="favorite-gifos-section">
+            <img src="./assets/icon-favoritos.svg" alt="" class="favorite-gifos-icon">
+            <h2 class="favorite-gifos-title">Favoritos</h2>
+            <!-- Contenedor de gifos favoritos -->
+            <div class="favorite-gifos-container" id="favorite-gifos-container">
+            </div>
+            <!-- Busqueda sin resultados -->
+            <div class="without-favorites-container">
+                <img src="./assets/icon-fav-sin-contenido.svg" alt="sin gifos favoritos" class="img-without-favs">
+                <p class="content-without-favs">"¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!"</p>
+            </div>
+            <!-- Btn para visualizar mas gifos favoritos -->
+            <div class="button-gifo" id="see-more-button-favorite">VER MÁS</div>
+        </section>
+        <!--__________________________________SECCIÓN TRENDING GIFOS____________________________________________-->
         <section class="trending-gifos-container">
             <h2 class="title-trending-gifos">Trending GIFOS</h2>
             <p class="content-trending-gifos">Mira los últimos <span class="line-break">GIFO de nuestra comunidad.</span></p>
+            <!-- CONTENEDOR DEL TRENDING GIFOS -->
             <div class="gifos-slider-container">
                 <!--BOTÓN SLIDER IZQUIERDO-->
                 <div class="slider-icon-box btn-left" id="slider-btn-left">
@@ -168,18 +206,104 @@
                 </div>
             </div>
         </section>
-        <!--__________________SECCIÓN FOOTER________________________-->
+        <!--_________________________________SECCIÓN CREAR GIFOS_______________________________________________-->
+        <section class="create-gifos-section">
+            <!-- elementos que componen la camara -->
+            <div class="create-gifos-container-camara">
+                <img src="./assets/element_cinta1.svg" alt="cinta1 img" class="small-camara-tape-img">
+                <img src="./assets/element_cinta2.svg" alt="cinta2 img" class="big-camara-tape-img">
+                <img src="./assets/element-camara.svg" alt="cuerpo de la camara img" class="camara-body-img">
+                <img src="./assets/element-luz-camara.svg" alt="luz de camara low img" class="camara-light-img" id="low-light-img">
+                <img src="./assets/Path 2.svg" alt="luz de camara high img" class="camara-light-img turn-off" id="high-light-img">
+            </div>
+            <!-- Contenedor destinado a la creación del gifo -->
+            <div class="create-gifos-container">
+                <!-- CAMARA CONTAINER -->
+                <div class="create-gifos-container-screen">
+                    <!-- mensaje de crear un nuevo gifo -->
+                    <div class="create-gifo-decription-step show-gifo-step" id="create-gifo-start">
+                        <h2 class="create-gifo-title up-title-gifo ">Aquí podrás</h2> 
+                        <h2 class="create-gifo-title">crear tus propios <span class="gifo-title-decoration">gifos</span></h2>
+                        <p class="create-gifo-content">¡Crea tu GIFO en sólo 3 pasos!</p>
+                        <p class="create-gifo-content">(sólo necesitas una cámara para grabar un video)</p>
+                    </div>
+                    <!--mensaje de solicitar acceso a la camara  -->
+                    <div class="create-gifo-decription-step" id="create-gifo-acces-cam">
+                        <h2 class="create-gifo-title up-title-gifo ">¿Nos das acceso </h2> 
+                        <h2 class="create-gifo-title">a tu cámara?</h2>
+                        <p class="create-gifo-content">El acceso a tu camara será válido sólo</p>
+                        <p class="create-gifo-content">por el tiempo en el que estés creando el GIFO.</p>
+                    </div>
+                    <!-- Box donde se mostrará proceso de crear gifo -->
+                    <div class="cam-screen-container">
+                        <!-- BOX STREAM VIDEO -->
+                        <div class="cam-screen-box">
+                            <video src="" class="cam-stream"></video>
+                            <!-- <img src="" alt="" class="cam-stream resultado-stream"> -->
+                        </div>
+                        <!-- HOVER DE GIFO SUBIDO -->
+                        <div class="cam-screen-box cam-screen-uploading" id="uploaded-gifo-box">
+                            <!-- ICONOS DEL HOVER -->
+                            <div class="cam-screen-icons-container ">
+                                <div class="cam-screen-icons-box">
+                                    <img src="./assets/icon-download.svg" alt="img descargar" class="cam-screen-icons">
+                                    <img src="./assets/icon-download-hover.svg" alt="img descargar" class="cam-screen-icons-hover">
+                                </div>
+                                <div class="cam-screen-icons-box">
+                                    <img src="./assets/icon-link-normal.svg" alt="img descargar" class="cam-screen-icons">
+                                    <img src="./assets/icon-link-hover.svg" alt="img descargar" class="cam-screen-icons-hover">
+                                </div>
+                            </div>
+                            <!-- MENSAJE DE SUBIDO CON EXITO -->
+                            <div class="mesagge-create-gifos-box">
+                                <img src="./assets/ok.svg" alt="gifo creado" class="icon-create-gifos">
+                                <p class="content-create-gifos">GIFO subido con éxito</p>
+                            </div>
+                        </div>
+                        <!-- HOVER DE SUBIENDO EL GIFO CREADO -->
+                        <div class="cam-screen-box cam-screen-uploading" id="uploannding-gifo-box">
+                            <div class="mesagge-create-gifos-box">
+                                <img src="./assets/loader.svg" alt="gifo creado" class="icon-create-gifos uploading-gifo">
+                                <p class="content-create-gifos">Estamos subiendo tu GIFO</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- sección pasos para crear gifo -->
+                <div class="create-gifos-container-steps">
+                    <div class="step-item">1</div>
+                    <div class="step-item">2</div>
+                    <div class="step-item">3</div>
+                    <div class="timekeeper-item" id="timekeeper">00:00:00</div>
+                    <div class="record-again-item" id="record-again">repetir captura</div>
+                </div>
+            </div>
+            <!-- Imagen de la cinta de camara derecha -->
+            <img src="./assets/pelicula.svg" alt="pelicula img" class="camara-tape-img">
+            <!-- botónes para crear gifo -->
+            <div class="create-gifos-container-buttons">
+                <div class="button-gifo show-bttn" id="btn-start-gifo">comenzar</div>
+                <div class="button-gifo" id="btn-record-gifo">grabar</div>
+                <div class="button-gifo" id="btn-end-gifo">finalizar</div>
+                <div class="button-gifo" id="btn-up-gifo">subir gifo</div>
+            </div>
+        </section>
+        <!--__________________________________SECCIÓN FOOTER____________________________________________________-->
         <footer class="footer-gifos">
+            <!-- contenedor de iconos de redes sociales -->
             <div class="socialnet-box">
                 <h4 class="title-footer">Compartir en:</h4>
+                <!-- facebook -->
                 <a href="#" class="socialnet-icon-box">
                     <img src="./assets/icon_facebook.svg" alt="facebook icon" class="socialnet-icon-normal">
                     <img src="./assets/icon_facebook_hover.svg" alt="facebook icon" class="socialnet-icon-hover">
                 </a>
+                <!-- twitter -->
                 <a href="#" class="socialnet-icon-box">
                     <img src="./assets/icon-twitter.svg" alt="twitter icon" class="socialnet-icon-normal twitter-icon-normal">
                     <img src="./assets/icon-twitter-hover.svg" alt="twitter icon" class="socialnet-icon-hover twitter-icon-hover">
                 </a>
+                <!-- instagram -->
                 <a href="#" class="socialnet-icon-box">
                     <img src="./assets/icon_instagram.svg" alt="instagram icon" class="socialnet-icon-normal">
                     <img src="./assets/icon_instagram-hover.svg" alt="instagram icon" class="socialnet-icon-hover">
@@ -187,14 +311,19 @@
             </div>
             <h5 class="content-footer">© GIFOS 2020 All Rights Reserved.</h5>
         </footer>
-        <!--_________________LINEA BOTTOM________________-->
+        <!--____________________________________LINEA BOTTOM__________________________________________________-->
         <hr class="line-decoration">
-    </div>
-    <!--____________________ SCRIPTS JS__________________ -->
+    </section>
+    <!--______________________________________ SCRIPTS JS_____________________________________________________ -->
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     <script type="text/javascript" src="./scripts/script.js"></script>
-    <script type="text/javascript" src="./scripts/trending_gifos.js"></script>
+    <script type="text/javascript" src="./scripts/functions_gifos.js"></script>
+    <script type="text/javascript" src="./scripts/menu_header.js"></script>
     <script type="text/javascript" src="./scripts/dark_mode.js"></script>
-    <script type="text/javascript" src="./scripts/menu_mobile.js"></script>
+    <script type="text/javascript" src="./scripts/fav_gifos.js"></script>
     <script type="text/javascript" src="./scripts/search_gifo.js"></script>
+    <script type="text/javascript" src="./scripts/trending_gifos.js"></script>
+    <script type="text/javascript" src="./scripts/create_gifo.js"></script>
+
 </body>
 </html>
