@@ -338,8 +338,10 @@
   background-color: #9b80f2;
 }
 .page-container .header-container .menu-container .box-new-gifo {
-  display: none;
   cursor: pointer;
+}
+.page-container .header-container .menu-container .box-new-gifo .btn-new-gifos-desktop {
+  display: none;
 }
 .page-container .header-container .menu-container .box-new-gifo .btn-new-gifos-hover {
   display: none;
@@ -611,96 +613,54 @@
 }
 .page-container .create-gifos-section {
   display: none;
+  margin-top: 5px;
   flex-wrap: wrap;
 }
 .page-container .create-gifos-section .create-gifos-container-camara {
-  position: relative;
-  width: 220px;
-  height: 162px;
-  margin-top: 118px;
-  margin-left: 10.8%;
-}
-.page-container .create-gifos-section .create-gifos-container-camara .small-camara-tape-img {
-  position: absolute;
-  width: 46px;
-  height: 46px;
-  top: 19.3px;
-  left: 0;
-  z-index: 1;
-  transition: 1s;
-}
-.page-container .create-gifos-section .create-gifos-container-camara .big-camara-tape-img {
-  position: absolute;
-  top: 1px;
-  left: 49px;
-  width: 64px;
-  height: 64px;
-  z-index: 1;
-  transition: 1s;
-}
-.page-container .create-gifos-section .create-gifos-container-camara .camara-body-img {
-  position: absolute;
-  width: 123px;
-  height: 105px;
-  left: 7.5px;
-  bottom: 0px;
-  z-index: 0;
-}
-.page-container .create-gifos-section .create-gifos-container-camara .camara-light-img {
-  position: absolute;
-  top: 7px;
-  right: 0px;
-  width: 91px;
-  height: 151px;
-  cursor: pointer;
-  transition: 0.4s;
-}
-.page-container .create-gifos-section .create-gifos-container-camara .turn-off {
   display: none;
 }
 .page-container .create-gifos-section .create-gifos-container {
-  margin-left: -3%;
-  width: 55.3%;
-  max-width: 796px;
-  height: 472px;
+  margin: auto;
   border-bottom: solid 7px #572EE5;
   border-radius: 5px;
   position: relative;
+  width: 100%;
+  max-width: 375px;
+  height: 420px;
 }
 .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen {
   margin: auto;
   border: 1px solid #572EE5;
-  width: 86.4%;
+  width: 90%;
   max-width: 688px;
-  max-width: 688px;
-  height: 390px;
+  height: 370px;
 }
 .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .create-gifo-decription-step {
   display: none;
-  margin: 20px;
+  margin: 15px;
   border: 1px solid #50E3C2;
-  height: 348px;
-  padding-top: 114px;
+  height: 338px;
+  padding-top: 100px;
 }
 .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .create-gifo-decription-step .create-gifo-title {
   margin: auto;
   font-family: "Montserrat", sans-serif;
-  font-size: 25px;
-  line-height: 35px;
+  font-size: 20px;
+  line-height: 25px;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0;
   color: #572EE5;
 }
-.page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .create-gifo-decription-step .create-gifo-title .gifo-start-decoration {
+.page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .create-gifo-decription-step .create-gifo-title .gifo-title-decoration {
   color: #50E3C2;
   text-transform: uppercase;
 }
 .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .create-gifo-decription-step .create-gifo-content {
   margin: auto;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: 13px;
+  line-height: 20px;
   font-weight: 400;
   text-align: center;
   letter-spacing: 0;
@@ -709,10 +669,10 @@
 .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .cam-screen-container {
   display: none;
   position: relative;
-  margin: 20px;
+  margin: 15px;
   border: 1px solid #50E3C2;
-  height: 348px;
   text-align: center;
+  height: 338px;
 }
 .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .cam-screen-container .cam-screen-box {
   position: absolute;
@@ -723,8 +683,7 @@
   margin: auto;
   margin-top: 15px;
   width: 95%;
-  max-width: 480px;
-  height: 320px;
+  height: 306px;
 }
 .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .cam-screen-container .cam-screen-box .cam-stream {
   background: #572EE5;
@@ -757,7 +716,7 @@
   display: block;
 }
 .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .cam-screen-container .cam-screen-uploading .mesagge-create-gifos-box {
-  margin-top: 84px;
+  margin-top: 75px;
 }
 .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .cam-screen-container .cam-screen-uploading .mesagge-create-gifos-box .icon-create-gifos {
   margin-top: 38px;
@@ -765,8 +724,8 @@
 .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .cam-screen-container .cam-screen-uploading .mesagge-create-gifos-box .content-create-gifos {
   margin-top: 14px;
   font-family: "Montserrat", sans-serif;
-  font-size: 15px;
-  line-height: 20px;
+  font-size: 13px;
+  line-height: 15px;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0;
@@ -778,20 +737,20 @@
 .page-container .create-gifos-section .create-gifos-container .create-gifos-container-steps {
   margin: auto;
   width: inherit;
-  height: 75px;
+  height: 43px;
   display: flex;
   justify-content: center;
 }
 .page-container .create-gifos-section .create-gifos-container .create-gifos-container-steps .step-item {
-  margin-top: 24px;
-  margin-right: 26px;
-  width: 32px;
-  height: 32px;
+  margin-top: 8px;
+  margin-right: 20px;
+  width: 27px;
+  height: 27px;
   border: 1px solid #572EE5;
   border-radius: 50%;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 14px;
+  line-height: 25px;
   font-weight: 400;
   text-align: center;
   letter-spacing: 0;
@@ -808,8 +767,8 @@
   position: absolute;
   align-self: center;
   right: 7%;
-  width: 74px;
-  height: 22px;
+  width: 65px;
+  height: 18px;
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   line-height: 22px;
@@ -822,26 +781,20 @@
   display: none;
   position: absolute;
   align-self: center;
+  width: 65px;
   right: 7%;
   font-family: "Montserrat", sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 16px;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0;
   color: #572EE5;
   text-transform: uppercase;
-  border-bottom: 2px solid white;
-  cursor: pointer;
-}
-.page-container .create-gifos-section .create-gifos-container .create-gifos-container-steps .record-again-item:hover {
-  border-color: #5ED7C6;
+  border-bottom: 2px solid #5ED7C6;
 }
 .page-container .create-gifos-section .camara-tape-img {
-  margin-top: 383px;
-  margin-left: 13px;
-  width: 142px;
-  height: 88px;
+  display: none;
 }
 .page-container .create-gifos-section .create-gifos-container-buttons {
   margin-top: 20px;
@@ -1044,9 +997,14 @@
     background: #5ED7C6;
   }
   .page-container .header-container .menu-container .box-new-gifo {
-    display: block;
     margin-right: 156px;
     margin-top: 18px;
+  }
+  .page-container .header-container .menu-container .box-new-gifo .btn-new-gifo-mobile {
+    display: none;
+  }
+  .page-container .header-container .menu-container .box-new-gifo .btn-new-gifos-desktop {
+    display: block;
   }
   .page-container .header-container .menu-container .box-new-gifo:hover .btn-new-gifos-normal {
     display: none;
@@ -1241,6 +1199,157 @@
     display: inline-block;
     width: 40px;
     height: 40px;
+  }
+  .page-container .create-gifos-section .create-gifos-container-camara {
+    display: block;
+    position: relative;
+    width: 220px;
+    height: 162px;
+    margin-top: 118px;
+    margin-left: 10.8%;
+  }
+  .page-container .create-gifos-section .create-gifos-container-camara .small-camara-tape-img {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    top: 19.3px;
+    left: 0;
+    z-index: 1;
+    transition: 1s;
+  }
+  .page-container .create-gifos-section .create-gifos-container-camara .big-camara-tape-img {
+    position: absolute;
+    top: 1px;
+    left: 49px;
+    width: 64px;
+    height: 64px;
+    z-index: 1;
+    transition: 1s;
+  }
+  .page-container .create-gifos-section .create-gifos-container-camara .camara-body-img {
+    position: absolute;
+    width: 123px;
+    height: 105px;
+    left: 7.5px;
+    bottom: 0px;
+    z-index: 0;
+  }
+  .page-container .create-gifos-section .create-gifos-container-camara .camara-light-img {
+    position: absolute;
+    top: 7px;
+    right: 0px;
+    width: 91px;
+    height: 151px;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+  .page-container .create-gifos-section .create-gifos-container-camara .turn-off {
+    display: none;
+  }
+  .page-container .create-gifos-section .create-gifos-container {
+    margin: 0;
+    margin-left: -3%;
+    width: 55.3%;
+    max-width: 796px;
+    height: 472px;
+  }
+  .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen {
+    width: 86.4%;
+    max-width: 688px;
+    height: 390px;
+  }
+  .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .create-gifo-decription-step {
+    margin: 20px;
+    height: 348px;
+    padding-top: 114px;
+  }
+  .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .create-gifo-decription-step .create-gifo-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    line-height: 35px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0;
+  }
+  .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .create-gifo-decription-step .create-gifo-content {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0;
+  }
+  .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .cam-screen-container {
+    display: none;
+    margin: 20px;
+    height: 348px;
+  }
+  .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .cam-screen-container .cam-screen-box {
+    margin-top: 15px;
+    max-width: 480px;
+    height: 320px;
+  }
+  .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .cam-screen-container .cam-screen-uploading .mesagge-create-gifos-box {
+    margin-top: 84px;
+  }
+  .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .cam-screen-container .cam-screen-uploading .mesagge-create-gifos-box .content-create-gifos {
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0;
+  }
+  .page-container .create-gifos-section .create-gifos-container .create-gifos-container-screen .show-gifo-step {
+    display: block;
+  }
+  .page-container .create-gifos-section .create-gifos-container .create-gifos-container-steps {
+    height: 75px;
+  }
+  .page-container .create-gifos-section .create-gifos-container .create-gifos-container-steps .step-item {
+    margin-top: 24px;
+    margin-right: 26px;
+    width: 32px;
+    height: 32px;
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0;
+    cursor: pointer;
+  }
+  .page-container .create-gifos-section .create-gifos-container .create-gifos-container-steps .timekeeper-item {
+    width: 74px;
+    height: 22px;
+  }
+  .page-container .create-gifos-section .create-gifos-container .create-gifos-container-steps .record-again-item {
+    width: 130px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0;
+    border-bottom: 2px solid white;
+    cursor: pointer;
+  }
+  .page-container .create-gifos-section .create-gifos-container .create-gifos-container-steps .record-again-item:hover {
+    border-color: #5ED7C6;
+  }
+  .page-container .create-gifos-section .camara-tape-img {
+    display: block;
+    margin-top: 383px;
+    margin-left: 13px;
+    width: 142px;
+    height: 88px;
+  }
+  .page-container .create-gifos-section .create-gifos-container-buttons {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .page-container .create-gifos-section .create-gifos-container-buttons .show-bttn {
+    display: block;
   }
   .page-container .footer-gifos {
     height: 116px;
