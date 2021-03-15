@@ -12,7 +12,7 @@
   margin-left: 21px;
   margin-bottom: 25px;
   transition: 0.3s ease-in-out;
-  width: 156px;
+  width: 40%;
   height: 120px;
 }
 .gifos-box .gifo-img {
@@ -51,6 +51,9 @@
   display: block;
   cursor: pointer;
 }
+.gifos-box .gifos-box-hover .icons-gifos-box .delete-icon {
+  display: none;
+}
 .gifos-box .gifos-box-hover .icons-gifos-box .fav-icon-activate {
   position: relative;
   display: none;
@@ -75,9 +78,10 @@
   letter-spacing: 0;
   color: #FFFFFF;
   text-align: left;
+  text-transform: capitalize;
 }
 .gifos-box .gifos-box-hover .title-gifos {
-  margin: 5px 0 27px 12px;
+  margin: 5px 5px 0 12px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 19px;
@@ -105,7 +109,7 @@
   text-align: left;
 }
 .gifos-box.trending-gifo .gifos-box-hover .title-gifos {
-  margin: 6px 0 51px 18px;
+  margin: 6px 15px 0 18px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 19px;
@@ -114,6 +118,7 @@
   letter-spacing: 0;
   color: #FFFFFF;
   text-align: left;
+  white-space: normal;
 }
 
 .page-container {
@@ -123,6 +128,7 @@
 .page-container .button-gifo {
   display: none;
   margin: auto;
+  margin-top: 51px;
   border: 1px solid #572EE5;
   border-radius: 25px;
   width: 127px;
@@ -162,6 +168,10 @@
   margin: auto;
   width: 100%;
   max-width: 318px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
 }
 .page-container .full-screen-section .full-screen-container .close-gifo-full-screen {
   display: block;
@@ -183,9 +193,9 @@
   height: 245px;
 }
 .page-container .full-screen-section .full-screen-container .description-full-screen {
-  margin-right: 124px;
+  margin-right: 10px;
+  width: 69%;
   display: inline-block;
-  text-align: left;
 }
 .page-container .full-screen-section .full-screen-container .description-full-screen .user-full-screen {
   margin-left: 6px;
@@ -197,6 +207,7 @@
   text-align: center;
   letter-spacing: 0;
   text-align: left;
+  text-transform: capitalize;
 }
 .page-container .full-screen-section .full-screen-container .description-full-screen .title-full-screen {
   margin-top: 6px;
@@ -206,13 +217,16 @@
   font-weight: 700;
   text-align: center;
   letter-spacing: 0;
+  text-align: left;
+  text-transform: capitalize;
 }
 .page-container .full-screen-section .full-screen-container .item-full-screen {
-  margin-top: 17px;
-  margin-right: 29px;
+  margin-top: 14px;
+  margin-right: 15px;
   display: inline-block;
   width: 36px;
   height: 36px;
+  text-align: center;
   cursor: pointer;
 }
 .page-container .full-screen-section .full-screen-container .item-full-screen .item-gifo-fs {
@@ -242,6 +256,9 @@
 .page-container .full-screen-section .full-screen-container .item-full-screen:last-child {
   margin-right: 0;
 }
+.page-container .full-screen-section .full-screen-container .fs-delete-icon {
+  display: none;
+}
 .page-container .full-screen-section .full-screen-container .fs-fav-act-box {
   display: none;
   position: relative;
@@ -266,6 +283,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 100%;
   height: 95px;
 }
 .page-container .header-container .logo-box {
@@ -346,6 +364,10 @@
 .page-container .header-container .menu-container .box-new-gifo .btn-new-gifos-hover {
   display: none;
 }
+.page-container .search-gifos-container {
+  margin: auto;
+  margin-top: 7px;
+}
 .page-container .search-gifos-container .title {
   font-family: "Montserrat", sans-serif;
   font-size: 25px;
@@ -353,7 +375,7 @@
   font-weight: 700;
   text-align: center;
   letter-spacing: 0;
-  margin: 7px auto 0 auto;
+  margin: auto;
   color: #572EE5;
   width: 286px;
 }
@@ -468,13 +490,23 @@
 }
 .page-container .search-gifos-container .trending-box .trending-content {
   margin: 2px auto 0 auto;
-  max-width: 236px;
+  width: 225px;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   line-height: 25px;
   font-weight: 500;
   text-align: center;
   letter-spacing: 0;
+  text-transform: capitalize;
+}
+.page-container .search-gifos-container .line-decoration-search {
+  display: none;
+  margin: auto;
+  margin-top: 35px;
+  width: 157px;
+  height: 1px;
+  background-color: #9CAFC3;
+  opacity: 0.5;
 }
 .page-container .search-gifos-container .search-without-result-container {
   display: none;
@@ -504,11 +536,12 @@
 }
 .page-container .search-gifos-container .results-container {
   display: none;
-  margin: 79px auto 34px auto;
+  margin: auto;
+  margin-top: 43px;
+  padding-bottom: 34px;
   max-width: 375px;
 }
 .page-container .search-gifos-container .results-container .results-title {
-  margin-bottom: 38px;
   font-family: "Montserrat", sans-serif;
   font-size: 25px;
   line-height: 40px;
@@ -518,9 +551,15 @@
   color: #572EE5;
   text-transform: uppercase;
 }
+.page-container .search-gifos-container .results-container .results-gifos-section {
+  text-align: left;
+  margin-top: 38px;
+}
 .page-container .favorite-gifos-section {
   display: none;
-  margin: 5px auto 78px auto;
+  margin: auto;
+  margin-top: 5px;
+  padding-bottom: 34px;
 }
 .page-container .favorite-gifos-section .favorite-gifos-icon {
   margin: auto;
@@ -539,8 +578,8 @@
 .page-container .favorite-gifos-section .favorite-gifos-container {
   display: none;
   margin: auto;
-  max-width: 375px;
   margin-top: 46px;
+  max-width: 375px;
 }
 .page-container .favorite-gifos-section .without-favorites-container {
   display: none;
@@ -561,6 +600,54 @@
   text-align: center;
   letter-spacing: 0;
   color: #50E3C2;
+}
+.page-container .my-gifos-section {
+  display: none;
+  margin-top: 5px;
+  padding-bottom: 32px;
+}
+.page-container .my-gifos-section .my-gifos-icon {
+  margin: auto;
+  display: block;
+  width: 24px;
+  height: 22px;
+}
+.page-container .my-gifos-section .my-gifos-title {
+  margin-top: 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0;
+  color: #572EE5;
+}
+.page-container .my-gifos-section .mis-gifos-container {
+  display: none;
+  margin: auto;
+  max-width: 375px;
+  margin-top: 46px;
+}
+.page-container .my-gifos-section .without-my-gifos-container {
+  display: none;
+  margin-top: 60px;
+  margin-bottom: 41px;
+}
+.page-container .my-gifos-section .without-my-gifos-container .img-without-my-gifos {
+  margin: auto;
+  display: block;
+}
+.page-container .my-gifos-section .without-my-gifos-container .content-without-my-gifos {
+  margin: auto;
+  margin-top: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0;
+  color: #50E3C2;
+  width: 60%;
 }
 .page-container .trending-gifos-container {
   margin-top: 45px;
@@ -800,6 +887,9 @@
   margin-top: 20px;
   width: 100%;
 }
+.page-container .create-gifos-section .create-gifos-container-buttons .button-create-gifo {
+  margin-top: 0;
+}
 .page-container .create-gifos-section .create-gifos-container-buttons .show-bttn {
   display: block;
 }
@@ -820,11 +910,13 @@
   letter-spacing: 0;
 }
 .page-container .footer-gifos .socialnet-box .socialnet-icon-box {
+  display: inline-block;
   margin-left: 19px;
   width: 20px;
   height: 20px;
 }
 .page-container .footer-gifos .socialnet-box .socialnet-icon-box .socialnet-icon-normal {
+  display: inline-block;
   width: inherit;
   height: inherit;
 }
@@ -849,7 +941,26 @@
   letter-spacing: 0;
 }
 
+@media (min-width: 375px) {
+  .gifos-box {
+    width: 156px;
+    height: 120px;
+  }
+}
 @media (min-width: 768px) {
+  .page-container .full-screen-section .full-screen-container {
+    max-width: 457px;
+  }
+  .page-container .full-screen-section .full-screen-container .close-gifo-full-screen {
+    margin-right: 0;
+  }
+  .page-container .full-screen-section .full-screen-container .gifo-section-fs .gifo-full-screen {
+    width: 457px;
+    height: 297px;
+  }
+  .page-container .full-screen-section .full-screen-container .description-full-screen {
+    width: 78%;
+  }
   .page-container .header-container .logo-box {
     margin-left: 83px;
   }
@@ -870,12 +981,15 @@
     width: 315px;
   }
   .page-container .search-gifos-container .trending-box .trending-content {
-    max-width: 300px;
+    width: 300px;
   }
   .page-container .search-gifos-container .results-container {
     max-width: 729px;
   }
   .page-container .favorite-gifos-section .favorite-gifos-container {
+    max-width: 729px;
+  }
+  .page-container .my-gifos-section .mis-gifos-container {
     max-width: 729px;
   }
 }
@@ -903,6 +1017,7 @@
   }
   .page-container .full-screen-section .full-screen-container {
     max-width: 825px;
+    justify-content: flex-start;
   }
   .page-container .full-screen-section .full-screen-container .close-gifo-full-screen {
     margin: 67px 0px 78px 867px;
@@ -932,8 +1047,8 @@
     height: 385px;
   }
   .page-container .full-screen-section .full-screen-container .description-full-screen {
-    margin-left: 70px;
-    margin-right: 516px;
+    margin-left: 65px;
+    width: 72%;
   }
   .page-container .full-screen-section .full-screen-container .description-full-screen .user-full-screen {
     margin-top: 27px;
@@ -1061,7 +1176,11 @@
     font-weight: 500;
     text-align: center;
     letter-spacing: 0;
-    max-width: 402px;
+    width: inherit;
+  }
+  .page-container .search-gifos-container .line-decoration-search {
+    margin-top: 55px;
+    width: 338px;
   }
   .page-container .search-gifos-container .search-without-result-container {
     margin: 158px 0 104px 0;
@@ -1089,21 +1208,16 @@
     color: #50E3C2;
   }
   .page-container .search-gifos-container .results-container {
-    margin: 137px auto 60px auto;
-    max-width: 1185px;
+    margin-top: 82px;
+    max-width: 896px;
   }
   .page-container .search-gifos-container .results-container .results-title {
-    margin-bottom: 38px;
     font-family: "Montserrat", sans-serif;
     font-size: 35px;
     line-height: 30px;
     font-weight: 700;
     text-align: center;
     letter-spacing: 0;
-    color: #572EE5;
-  }
-  .page-container .search-gifos-container .results-container .results-gifos-section {
-    text-align: center;
   }
   .page-container .favorite-gifos-section {
     margin: 11px auto 79px auto;
@@ -1119,7 +1233,7 @@
     color: #572EE5;
   }
   .page-container .favorite-gifos-section .favorite-gifos-container {
-    max-width: 1185px;
+    max-width: 896px;
     margin-top: 36px;
   }
   .page-container .favorite-gifos-section .without-favorites-container {
@@ -1134,6 +1248,24 @@
     font-weight: 700;
     text-align: center;
     letter-spacing: 0;
+  }
+  .page-container .my-gifos-section {
+    margin-top: 10px;
+  }
+  .page-container .my-gifos-section .my-gifos-title {
+    margin-top: 8px;
+    font-size: 25px;
+  }
+  .page-container .my-gifos-section .mis-gifos-container {
+    margin-top: 36px;
+    max-width: 896px;
+  }
+  .page-container .my-gifos-section .without-my-gifos-container {
+    margin-top: 111px;
+  }
+  .page-container .my-gifos-section .without-my-gifos-container .content-without-my-gifos {
+    width: 100%;
+    font-size: 22px;
   }
   .page-container .trending-gifos-container {
     margin-top: 95px;
@@ -1390,6 +1522,17 @@
     text-align: center;
     letter-spacing: 0;
     justify-items: flex-end;
+  }
+}
+@media (min-width: 1185px) {
+  .page-container .search-gifos-container .results-container {
+    max-width: 1185px;
+  }
+  .page-container .favorite-gifos-section .favorite-gifos-container {
+    max-width: 1185px;
+  }
+  .page-container .my-gifos-section .mis-gifos-container {
+    max-width: 1185px;
   }
 }
 

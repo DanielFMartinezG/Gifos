@@ -19,6 +19,15 @@ close_suggest_icon.addEventListener("click", () =>{
     suggest_box[0].style.display = "none";
 
     results_container.style.display = "none";
+    line_search.style.display = "none";
+    search_without_result_container.style.display ="none";
+    //si es la versión mobile debemos volver  a mostrar el titulo y la imagen principal
+    if(search_mobile){
+        page_title.style.display = "block";
+        img_welcome_gifos.style.display = "block";
+        search_container[0].style.marginTop = "0px";
+    }
+
 });
 //realizar busqueda de sugerencias a GIPHY
 search_input[0].addEventListener("keyup",(evento)=>{//key up para que lea el value ingresado
@@ -63,6 +72,13 @@ let selectSuggest = (suggest) =>{
 let searchGifo = () =>{
     search_box[0].style.borderBottom = "none";//ocultamos la linea inferior del input
     suggest_box[0].style.display = "none";//ocultamos la caja de sugerencias al realizar la busqueda
+    line_search.style.display = "block";//mostramos la linea de decoración
+    //si es la versión mobile debemos dejar solo la caja de busqueda
+    if(search_mobile){
+        page_title.style.display = "none";
+        img_welcome_gifos.style.display = "none";
+        search_container[0].style.marginTop = "17px";
+    }
     let q = "q="+search_input[0].value;//valor a buscar mediante la api
     let url_search_gifos = "https://api.giphy.com/v1/gifs/search?"+q+"?&"+api_key;  //url de la API search gifs GIPHY
     gifos_searched_array.splice(0);//eliminamos los elementos de la lista cada vez que se realice el request
@@ -74,7 +90,7 @@ let searchGifo = () =>{
     .then(response_search => {
         //asignamos los resultados obtenidos a la lista de objetos
         for(let i=0; i<response_search.data.length;i++){
-            let gifo = new New_gifo(response_search.data[i], "gifo-search-"+(i+1), "fav-icon-gs-"+(i+1),"fav-icon-act-gs-"+(i+1),"dow-icon-gs-"+(i+1),"full-screen-icon-gs-"+(i+1));
+            let gifo = new New_gifo(response_search.data[i], "gifo-search-"+(i+1), "fav-icon-gs-"+(i+1),"fav-icon-act-gs-"+(i+1),"dow-icon-gs-"+(i+1),"full-screen-icon-gs-"+(i+1),"trash-icon-gs-"+(i+1));
             gifos_searched_array.push(gifo);
         }
         delete_gifo_cards_finded();
@@ -126,3 +142,11 @@ see_more_button_search.addEventListener("click", () =>{
     add_gifo_cards_finded();
 });
 
+
+// TAGS POPULARES
+fetch(url_tags)
+.then(response => response.json())
+.then(data => {
+    let tegs_items = data.data[0] + ", " + data.data[1] + ", " + data.data[2] + ", " + data.data[3] + ", " + data.data[4];
+    popular_tags.textContent = tegs_items;
+}).catch(mesagge_error => console.log(mesagge_error));

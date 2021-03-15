@@ -32,7 +32,7 @@
     margin-left: 21px;
     margin-bottom: 25px;
     transition: 0.3s ease-in-out;
-    width: 156px;
+    width: 40%;
     height: 120px;
     .gifo-img{
         display: block;// lo convierto en blque para aplicar el position absolute ya que no funciona con elementos tipo inline
@@ -71,6 +71,9 @@
                     }
                 }
             }
+            .delete-icon{
+                display: none;
+            }
             .fav-icon-activate{
                 position: relative;
                 display: none;
@@ -91,9 +94,10 @@
             @include roboto-font(15px,17px,400);
             color: #FFFFFF;
             text-align: left;
+            text-transform: capitalize;
         }
         .title-gifos{
-            margin: 5px 0 27px 12px;
+            margin: 5px 5px 0 12px;
             @include roboto-font(16px,19px,700);
             color: #FFFFFF;
             text-align: left;
@@ -113,10 +117,11 @@
             text-align: left;
         }
         .title-gifos{
-            margin: 6px 0 51px 18px;
+            margin: 6px 15px 0 18px;
             @include roboto-font(16px,19px,700);
             color: #FFFFFF;
             text-align: left;
+            white-space: normal;//el white space del carrusel está afectando a los hijos
         }
     }
 }
@@ -130,6 +135,7 @@
     .button-gifo{
         display: none;
         margin: auto;
+        margin-top: 51px;
         border: 1px solid #572EE5;
         border-radius: 25px;
         width: 127px;
@@ -166,6 +172,10 @@
             margin: auto;
             width: 100%;
             max-width: 318px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content:flex-end ;
             .close-gifo-full-screen{
                 display: block;
                 margin: 64px 40px 78px 288px;
@@ -188,26 +198,30 @@
                 }
             }
             .description-full-screen{
-                margin-right: 124px;
+                margin-right: 10px;
+                width: 69%;
                 display: inline-block;
-                text-align: left;
                 .user-full-screen{
                     margin-left: 6px;
                     margin-top: 14px;
                     @include roboto-font(15px,18px,400);
                     text-align: left;
+                    text-transform: capitalize;
                 }
                 .title-full-screen{
                     margin-top: 6px;
                     @include roboto-font(16px,19px,700);
+                    text-align: left;
+                    text-transform: capitalize;
                 }
             }
             .item-full-screen{
-                margin-top: 17px;
-                margin-right: 29px;
+                margin-top: 14px;
+                margin-right: 15px;
                 display: inline-block;
                 width: 36px;
                 height: 36px;
+                text-align: center;
                 cursor: pointer;
                 .item-gifo-fs{
                     width: inherit;
@@ -239,6 +253,9 @@
                     margin-right: 0;
                 }
             }
+            .fs-delete-icon{
+                display: none;
+            }
             .fs-fav-act-box{
                 display: none;
                 position: relative;
@@ -267,6 +284,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        width: 100%;
         height: 95px;
         .logo-box{
             margin: 29px 0 16px 22px;
@@ -348,9 +366,11 @@
     }
     //_________________SECCIÓN DE BUSQUEDA DE GIFOS__________
     .search-gifos-container{
+        margin: auto;
+        margin-top: 7px;
         .title{
             @include montserrant-font(25px,33px,700);
-            margin: 7px auto 0 auto;
+            margin: auto;
             color:#572EE5;
             width: 286px;
             .decoration-title{
@@ -451,9 +471,19 @@
             }
             .trending-content{
                 margin: 2px auto 0 auto;
-                max-width: 236px;
+                width: 225px;
                 @include montserrant-font(14px,25px,500);
+                text-transform: capitalize;
             }
+        }
+        .line-decoration-search{
+            display: none;
+            margin: auto;
+            margin-top: 35px;
+            width: 157px;
+            height: 1px;
+            background-color: #9CAFC3;
+            opacity: 0.5;
         }
         .search-without-result-container{
             display: none;
@@ -473,20 +503,27 @@
         }
         .results-container{
             display: none;
-            margin: 79px auto 34px auto;
+            margin: auto;
+            margin-top: 43px;
+            padding-bottom: 34px;
             max-width: 375px;
             .results-title{
-                margin-bottom: 38px;
                 @include montserrant-font(25px,40px,700);
                 color:#572EE5;
                 text-transform: uppercase;
+            }
+            .results-gifos-section{
+                text-align: left;
+                margin-top: 38px;
             }
         }
     }
     //__________________SECCIÓN GIFOS FAVORITOS___________________
     .favorite-gifos-section{
         display: none;
-        margin: 5px auto 78px auto;
+        margin: auto;
+        margin-top: 5px;
+        padding-bottom: 34px;
         .favorite-gifos-icon{
             margin: auto;
             display: block;
@@ -499,8 +536,8 @@
         .favorite-gifos-container{
             display: none;
             margin: auto;
-            max-width: 375px;
             margin-top: 46px;
+            max-width: 375px;
         }
         .without-favorites-container{
             display: none;
@@ -515,6 +552,45 @@
                 width: 250px;
                 @include montserrant-font(18px,20px,700);
                 color: #50E3C2;
+            }
+        }
+    }
+    //____________________SECCIÓN MIS GIFOS _____________________
+    .my-gifos-section{
+        display: none;
+        margin-top: 5px;
+        padding-bottom: 32px;
+        .my-gifos-icon{
+            margin: auto;
+            display: block;
+            width: 24px;
+            height: 22px;
+        }
+        .my-gifos-title{
+            margin-top: 6px;
+            @include montserrant-font(20px,30px,700);
+            color: #572EE5;
+        }
+        .mis-gifos-container{
+            display: none;
+            margin: auto;
+            max-width: 375px;
+            margin-top: 46px;
+        }
+        .without-my-gifos-container{
+            display: none;
+            margin-top: 60px;
+            margin-bottom: 41px;
+            .img-without-my-gifos{
+                margin: auto;
+                display: block;
+            }
+            .content-without-my-gifos{
+                margin: auto;
+                margin-top: 40px;
+                @include montserrant-font(18px,25px,700);
+                color: #50E3C2;
+                width: 60%;
             }
         }
     }
@@ -730,6 +806,9 @@
         .create-gifos-container-buttons{
             margin-top: 20px;
             width: 100%;
+            .button-create-gifo{
+                margin-top: 0;
+            }
             .show-bttn{
                 display: block;
             }
@@ -746,10 +825,12 @@
                 @include roboto-font(15px,15px,400);
             }
             .socialnet-icon-box{
+                display: inline-block;
                 margin-left: 19px;
                 width: 20px;
                 height: 20px;
                 .socialnet-icon-normal{
+                    display: inline-block;
                     width: inherit;
                     height: inherit;
                     &:hover{
@@ -772,9 +853,34 @@
         }
     }
 }
+@media (min-width: 375px){
+    //_________________________BOX TEMPLATE QUE DE LAS GIFOS CARDS__________________________
+    .gifos-box{
+    width: 156px;
+    height: 120px;
+    }
+}
 @media (min-width: 768px){
     //______________PAGE GIFOS CONTAINER______________
     .page-container{
+        //______________-FULL SCREEN GIFOS______________
+        .full-screen-section{
+            .full-screen-container{
+                max-width: 457px;
+                .close-gifo-full-screen{
+                    margin-right: 0;
+                }
+                .gifo-section-fs{
+                    .gifo-full-screen{
+                        width: 457px;
+                        height: 297px;
+                    }
+                }
+                .description-full-screen{
+                    width: 78%;
+                }
+            }
+        }
         // _________________-SECCIÓN DE ENCABEZADO________________
         .header-container{
             .logo-box{
@@ -804,7 +910,7 @@
             }
             .trending-box{
                 .trending-content{
-                    max-width: 300px;
+                    width: 300px;
                 }
             }
             .results-container{
@@ -814,6 +920,12 @@
         //__________________SECCIÓN GIFOS FAVORITOS___________________
         .favorite-gifos-section{
             .favorite-gifos-container{
+                max-width: 729px;
+            }
+        }
+        //____  ________________SECCIÓN MIS GIFOS _____________________
+        .my-gifos-section{
+            .mis-gifos-container{
                 max-width: 729px;
             }
         }
@@ -847,6 +959,7 @@
             overflow: hidden;
             .full-screen-container{
                 max-width: 825px;
+                justify-content:flex-start ;
                 .close-gifo-full-screen{
                     margin: 67px 0px 78px 867px;
                     width: 15px;
@@ -877,8 +990,8 @@
                     }
                 }
                 .description-full-screen{
-                    margin-left: 70px;
-                    margin-right: 516px;
+                    margin-left: 65px;
+                    width: 72%;
                     .user-full-screen{
                         margin-top: 27px;
                     }
@@ -1000,8 +1113,12 @@
                 .trending-content{
                     margin: 7px auto 0 auto;
                     @include montserrant-font(16px,25px,500);
-                    max-width: 402px;
+                    width: inherit;
                 }
+            }
+            .line-decoration-search{
+                margin-top: 55px;
+                width: 338px;
             }
             .search-without-result-container{
                 margin: 158px 0 104px 0;
@@ -1019,15 +1136,10 @@
                 }
             }
             .results-container{
-                margin: 137px auto 60px auto;
-                max-width: 1185px;
+                margin-top: 82px;
+                max-width: 896px;
                 .results-title{
-                    margin-bottom: 38px;
                     @include montserrant-font(35px,30px,700);
-                    color:#572EE5;
-                }
-                .results-gifos-section{
-                    text-align: center;
                 }
             }
         }
@@ -1040,7 +1152,7 @@
                 color: #572EE5;
             }
             .favorite-gifos-container{
-                max-width: 1185px;
+                max-width: 896px;
                 margin-top: 36px;
             }
             .without-favorites-container{
@@ -1049,6 +1161,25 @@
                     margin-top: 24px;
                     width: 431px;
                     @include montserrant-font(22px,33px,700);
+                }
+            }
+        }
+        //____________________SECCIÓN MIS GIFOS _____________________
+        .my-gifos-section{
+            margin-top: 10px;
+            .my-gifos-title{
+                margin-top: 8px;
+                font-size: 25px;
+            }
+            .mis-gifos-container{
+                margin-top: 36px;
+                max-width: 896px;
+            }
+            .without-my-gifos-container{
+                margin-top: 111px;
+                .content-without-my-gifos{
+                    width: 100%;
+                    font-size: 22px;
                 }
             }
         }
@@ -1280,6 +1411,29 @@
                 margin: 0 158px 0 0;
                 @include roboto-font(13px,13px,400);
                 justify-items: flex-end;
+            }
+        }
+    }
+}
+@media (min-width: 1185px){
+    //______________PAGE GIFOS CONTAINER______________
+    .page-container{
+        //_________________SECCIÓN DE BUSQUEDA DE GIFOS__________
+        .search-gifos-container{
+            .results-container{
+                max-width: 1185px;
+            }
+        }
+        //__________________SECCIÓN GIFOS FAVORITOS___________________
+        .favorite-gifos-section{
+            .favorite-gifos-container{
+                max-width: 1185px;
+            }
+        }
+        //____________________SECCIÓN MIS GIFOS _____________________
+        .my-gifos-section{
+            .mis-gifos-container{
+                max-width: 1185px;
             }
         }
     }

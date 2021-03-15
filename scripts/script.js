@@ -8,6 +8,8 @@ window.onload = function() {
     list_gifos_created();//Función para inicializar lista de gifos creados
     fetch_gifo_trending();//Función para crear el gifo trending
     setInterval(camara_effect,500);
+    delete_gifo_card_miGifos();
+    add_my_gifo_cards();
 }   
 //_________________________________API KEY GIPHY_____________________________________________
 let api_key = "api_key=RaZbdmj1owbBOfIeJgbEEEtEjE3poegE";
@@ -17,6 +19,7 @@ let gifos_box_template = document.getElementById("gifos-box-template");//nodo de
 let full_screen_gifo = document.getElementById("gifo-full-screen");//nodo img gifo full screen
 let full_screen_user = document.getElementById("user-full-screen");//nodo urusaio full screen
 let full_screen_title = document.getElementById("title-full-screen");//nodo titulo full screen
+let full_screen_icon_delete = document.getElementsByClassName("fs-delete-icon")//nodo icono borrar gifo
 let full_screen_icon_fav_act = document.getElementsByClassName("fs-fav-act-box");//nodo icono fav full screen activado
 let full_screen_icon_fav = document.getElementsByClassName("icon-fav-full-screen");//nodo icono fav full screen
 let full_screen_icon_dow = document.getElementsByClassName("icon-dow-full-screen");//nodo icono dow full screen
@@ -38,8 +41,19 @@ let btn_slider_fs = document.getElementsByClassName("slider-icon-fs");//nodo de 
 let btn_slider_hover = document.getElementsByClassName("slider-icon-hover");//nodo de botones de slider hover
 let btn_slider_hover_fs = document.getElementsByClassName("slider-icon-hover-fs");//nodo de botones slider hover full screen
 let search_icon = document.getElementsByClassName("search-icon");//nodo del icono de busqueda
+
+
+let small_camara_tape_img = document.getElementsByClassName("small-camara-tape-img")[0];
+let big_camara_tape_img = document.getElementsByClassName("big-camara-tape-img")[0];
+let camara_body_img = document.getElementsByClassName("camara-body-img")[0];
+let camara_tape_img = document.getElementsByClassName("camara-tape-img")[0];
+
+let twitter_icon_normal = document.getElementsByClassName("twitter-icon-normal")[0];
+let twitter_icon_hover = document.getElementsByClassName("twitter-icon-hover")[0];
 //_________________________________SEARCH GIFOS____________________________________________________
-let search_gifos_container = document.getElementsByClassName("search-gifos-container")[0];
+let search_gifos_container = document.getElementsByClassName("search-gifos-container")[0];//nodo contenedor de la sección de busqueda
+let page_title =  document.getElementById("page-title");//nodo del titulo de la pagina
+let img_welcome_gifos = document.getElementById("img-welcome-gifos");//nodo de la imagen principal de la página 
 let search_container = document.getElementsByClassName("search-container");//nodo contenedor de los nodo de busqueda y sugerencias
 let search_box = document.getElementsByClassName("search-box");//nodo contenedor de la caja de busqueda
 let search_icon_active = document.getElementsByClassName("search-icon-active");
@@ -59,7 +73,10 @@ let search_without_result_container = document.getElementsByClassName("search-wi
 let search_without_result_title = document.getElementsByClassName("search-without-result-title")[0];//Nodo del titulo sin resultados
 let gifos_searched_array = [];//lista para almacenar la información de los gifos junto con sus id, resultado del request
 let key_code_enter = 13;// key code de la tecla enter
-
+let popular_tags = document.getElementsByClassName("trending-content")[0];//nodo contenedor del box de popular tags
+let url_tags = "https://api.giphy.com/v1/trending/searches?"+api_key;//url de la api de pupular tags
+let line_search =  document.getElementsByClassName("line-decoration-search")[0];//linea de decoración de la sección de busquedas
+let search_mobile = screen.width<1024 ? true:false;
 //_________________________________FAVORITES GIFOS____________________________________________________
 let btn_fav_menu = document.getElementById("favourite-item-menu");//Bton favoritos del header
 let favorite_gifos_section = document.getElementsByClassName("favorite-gifos-section")[0];//sección de favoritos
@@ -69,6 +86,22 @@ let gifo_box_favorite = document.getElementsByClassName("gifo-favorite");//nodo 
 let see_more_button_favorite = document.getElementById("see-more-button-favorite");//nodo del botón ver más de gifos favoritos
 let num_gifos_favorites = 0;//variable para controlar el número de cards a agregar al hacer click en favoritos
 let favorite_array;//variable para almacenar la lista del local storage
+
+//_________________________________ MY GIFOS____________________________________________________
+
+let my_gifos_section =  document.getElementsByClassName("my-gifos-section")[0];
+let btn_my_gifo_menu = document.getElementById("btn_my_gifos");
+let mis_gifos_container = document.getElementById("mis-gifos-container");
+let without_my_gifos =  document.getElementsByClassName("without-my-gifos-container")[0];
+let see_more_button_myGifos =  document.getElementById("see-more-button-myGifos");
+
+let gifo_box_myGifo = document.getElementsByClassName("gifo-myGifo");//nodo que referencia a los gifo cards misGifos
+
+
+let num_gifos_myGifos = 0;//variable para controlar el número de cards a agregar al hacer click en favoritos
+
+let created_gifos_array;//variable destinada a almacenar la lista de gifos creados
+
 
 //_________________________________CREATE GIFOS____________________________________________________
 let url_upload_gifo = "https://upload.giphy.com/v1/gifs?"+api_key;  //url de la API search gifs GIPHY
@@ -82,7 +115,6 @@ let cam_screen_container = document.getElementsByClassName("cam-screen-container
 let cam_stream = document.getElementsByClassName("cam-stream")[0];//nodo de la etiqueta video
 let video_stream;//variable para almacenar el resultado del stream del acceso a la camara
 let recorder;//variable para almacenar el resultado del metodo RecordRTC
-let created_gifos_array;//variable destinada a almacenar la lista de gifos creados
 let form = new FormData();//objeto para almacenar el blob resultante de la grabación
 let timekeeper_item = document.getElementById("timekeeper");//nodo del cronometro
 let timekeeper;//variable a utilizar para comenzar set interval del cronometro

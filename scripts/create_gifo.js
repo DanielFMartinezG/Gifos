@@ -1,16 +1,5 @@
-//_________________________________FUNCIONALIDAD PARA CREAR UN NUEVO GIFO________________________
+//_________________________________FUNCIONALIDADES PARA CREAR UN NUEVO GIFO________________________
 
-//inicializamos la lista de gifos creados
-let list_gifos_created = () =>{
-    //verificamos si existe información en el local Storage
-    if(JSON.parse(localStorage.getItem("new_gifo"))){
-        //la lista de gifos creados será igual a lo que se encuentre en el LocalStorage
-        created_gifos_array = JSON.parse(localStorage.getItem("new_gifo"));
-    }else{
-        //si no hay información en el LocalStorage especificamos created_gifos_array como una lista
-        created_gifos_array = [];
-    }
-}
 //funcionalidad para efectos de la camara de crear gifo
 let camara_effect = () =>{
     camara_tape_effect("big-camara-tape-img");
@@ -144,7 +133,7 @@ let search_gifo_byId = (gif_id)=>{
     .then(data_new_gifo => {
         //creamos un nuevo objeto que represente al gifo creado y lo almacenamos en el local storage
         let long = created_gifos_array.length;
-        let gifo = new New_gifo(data_new_gifo.data, "gifo-created-"+(long+1), "fav-icon-gc-"+(long+1),"fav-icon-act-gc-"+(long+1),"dow-icon-gc-"+(long+1),"full-screen-icon-gc-"+(long+1));
+        let gifo = new New_gifo(data_new_gifo.data, "gifo-created-"+(long+1), "fav-icon-gc-"+(long+1),"fav-icon-act-gc-"+(long+1),"dow-icon-gc-"+(long+1),"full-screen-icon-gc-"+(long+1),"trash-icon-gc-"+(long+1));
         created_gifos_array.push(gifo);
         localStorage.setItem("new_gifo",JSON.stringify(created_gifos_array));
         uploannding_gifo_box.style.display = "none";//ocultamos el hover de subiendo gifo

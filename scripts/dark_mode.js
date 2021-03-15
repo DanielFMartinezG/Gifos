@@ -20,7 +20,14 @@ night_mode.addEventListener("click", ()=>{
         btn_slider_hover[1].src = "./assets/flecha-der-noc-hover.png";
         btn_slider_hover_fs[1].src = "./assets/flecha-der-noc-hover.png";
         search_icon[0].src = "./assets/icon-search-mod-noc.svg";
-        // twitter_icon_hover[0].style.display = "none";
+        close_suggest_icon.src = "./assets/close-modo-noct.svg";
+        small_camara_tape_img.src ="./assets/element_cinta1-modo-noc.svg";
+        big_camara_tape_img.src ="./assets/element_cinta2-modo-noc.svg";
+        camara_body_img.src = "./assets/element-camara.svg";
+        camara_tape_img.src = "./assets/pelicula-modo-noc.svg";
+
+        twitter_icon_normal.style.display = "block";
+        twitter_icon_hover.style.display = "none";
     }else{
         body_page.style.background = "white"; 
         line_decoration[0].style.background = "#572EE5";
@@ -40,5 +47,14 @@ night_mode.addEventListener("click", ()=>{
         btn_slider_hover[1].src = "./assets/Button-Slider-right-hover.svg";
         btn_slider_hover_fs[1].src = "./assets/Button-Slider-right-hover.svg";
         search_icon[0].src = "./assets/icon-search.svg";
+
+        close_suggest_icon.src = "./assets/close.svg";
+        small_camara_tape_img.src ="./assets/element_cinta1.svg";
+        big_camara_tape_img.src = "./assets/element_cinta2.svg";
+        camara_body_img.src = "./assets/element-camara.svg";
+        camara_tape_img.src = "./assets/pelicula.svg";
+
+        twitter_icon_normal.style.display = "none";
+        twitter_icon_hover.style.display = "block";
     }
 });

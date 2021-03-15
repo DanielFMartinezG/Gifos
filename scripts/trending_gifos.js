@@ -7,7 +7,7 @@ let fetch_gifo_trending =() => {
     .then(gifo_response => {
         // console.log(gifo_response.data[0]);
         for(let i=0; i<num_gifos_slider; i++){
-            let gifo = new New_gifo(gifo_response.data[i], "gifo-trending-"+(i+1), "fav-icon-gt-"+(i+1),"fav-icon-act-gt-"+(i+1),"dow-icon-gt-"+(i+1),"full-screen-icon-gt-"+(i+1));
+            let gifo = new New_gifo(gifo_response.data[i], "gifo-trending-"+(i+1), "fav-icon-gt-"+(i+1),"fav-icon-act-gt-"+(i+1),"dow-icon-gt-"+(i+1),"full-screen-icon-gt-"+(i+1),"trash-icon-gt-"+(i+1));
             trending_gifos_array.push(gifo);
             gifo_trending(i);
         }

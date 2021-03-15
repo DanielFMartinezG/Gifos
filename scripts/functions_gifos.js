@@ -1,12 +1,13 @@
 //creo una clase para almacentar la url de la información de los gifos buscados, además, los id que me permitirán acceder a ellos al hacer click sobre un icon
 class New_gifo {
-    constructor(url_gif, id_gif_img, id_fav_gif_icon,id_fav_gif_activate_icon, id_dow_gif_icon, id_fs_gif_icon){
+    constructor(url_gif, id_gif_img, id_fav_gif_icon,id_fav_gif_activate_icon, id_dow_gif_icon, id_fs_gif_icon,id_trash_icon){
         this.url_gif = url_gif;//url de la información del gifo en una posición especifica
         this.id_gif_img = id_gif_img;//id de la imagen que almacena el gifo
         this.id_fav_gif_icon = id_fav_gif_icon;//id del icono de favoritos de cada gifo
         this.id_fav_gif_activate_icon = id_fav_gif_activate_icon //id del icono de favorito activado
         this.id_dow_gif_icon = id_dow_gif_icon;//id del icono de dowlands de cada gifo
         this.id_fs_gif_icon = id_fs_gif_icon;//id del icono de full screen de cada gifo
+        this.id_trash_icon = id_trash_icon;//id del icono de borrar gifo
     }
 } 
 
@@ -26,6 +27,8 @@ let add_gifo_card =(parent_node,specific_class,gifos_list,i)=>{
     user_gifo[i].innerHTML = gifos_list[i].url_gif.username == ""? "GIFOS User": gifos_list[i].url_gif.username;
     //modificamos los id de los nodos que nos servirán para distintas funcionalidades como: favorito,dowlands,full screen
     gifo_img[i].id = gifos_list[i].id_gif_img;
+    let gifo_trash_icon = document.querySelectorAll("div.gifos-box."+ specific_class+"> div.gifos-box-hover> div.icons-gifos-box> div.delete-icon");
+    gifo_trash_icon[i].id = gifos_list[i].id_trash_icon;
     let gifo_fav_icon = document.querySelectorAll("div.gifos-box."+ specific_class+"> div.gifos-box-hover> div.icons-gifos-box> div.icon-fav");
     gifo_fav_icon[i].id = gifos_list[i].id_fav_gif_icon;
     let gifo_fav_icon_act = document.querySelectorAll("div.gifos-box."+ specific_class+"> div.gifos-box-hover> div.icons-gifos-box> div.fav-icon-activate");
@@ -38,9 +41,10 @@ let add_gifo_card =(parent_node,specific_class,gifos_list,i)=>{
     display_fav_act_icon(gifos_list[i],i);
 }
 
-//______________________________________FUNCIONALIDADES FULL SCREEN TRENDING_________________________________________________
-//utilizo la parte string de los nombres de los id para verificar desde donde se está llamando
+//______________________________________FUNCIONALIDADES FULL SCREEN_________________________________________________
 
+//utilizo la parte string de los nombres de los id para verificar desde donde se está llamando
+//utilizo parte del id de la imagen para identificar de cual sección se trata
 let gifoFullScreenMobile =(gifo)=>{//Funcionalidad full screen mobile, depende del id_image
     if(gifo.id.slice(0,13) == "gifo-trending"){//identificamos si pertenece al trending
         let index = trending_gifos_array.findIndex(x => x.id_gif_img == gifo.id);
@@ -51,6 +55,9 @@ let gifoFullScreenMobile =(gifo)=>{//Funcionalidad full screen mobile, depende d
     }else if(gifo.id.slice(0,13) == "gifo-favorite"){
         let index = favorite_array.findIndex(x => x.id_gif_img == gifo.id);
         gifo_full_screen(index,favorite_array);
+    }else if(gifo.id.slice(0,12) == "gifo-created"){
+        let index = created_gifos_array.findIndex(x => x.id_gif_img == gifo.id);
+        gifo_full_screen(index,created_gifos_array);
     }
 }
 let gifoFullScreenDesktop =(gifo)=>{//Funcionalidad full screen desktop, depente del id del botón full screen
@@ -60,9 +67,12 @@ let gifoFullScreenDesktop =(gifo)=>{//Funcionalidad full screen desktop, depente
     }else if(gifo.id.slice(0,19) == "full-screen-icon-gs"){//identificamos si pertenece a search
         let index = gifos_searched_array.findIndex(x => x.id_fs_gif_icon == gifo.id);
         gifo_full_screen(index,gifos_searched_array);
-    }else if(gifo.id.slice(0,20) == "full-screen-icon-fav"){
+    }else if(gifo.id.slice(0,19) == "full-screen-icon-gf"){//identificamos si pertenece a favoritos
         let index = favorite_array.findIndex(x => x.id_fs_gif_icon == gifo.id);
         gifo_full_screen(index,favorite_array);
+    }else if(gifo.id.slice(0,19) == "full-screen-icon-gc"){//identificamos si pertenece a mis gifos
+        let index = created_gifos_array.findIndex(x => x.id_fs_gif_icon == gifo.id);
+        gifo_full_screen(index,created_gifos_array);
     }
 }
 let gifo_full_screen = (index, gifos_list)=>{//Función para enviar info al full screen
@@ -72,6 +82,7 @@ let gifo_full_screen = (index, gifos_list)=>{//Función para enviar info al full
     full_screen_icon_fav[0].id = gifos_list[index].id_fav_gif_icon;
     full_screen_icon_fav_act[0].id  = gifos_list[index].id_fav_gif_activate_icon;
     full_screen_icon_dow[0].id = gifos_list[index].id_dow_gif_icon;
+    full_screen_icon_delete[0].id = gifos_list[index].id_trash_icon;
     //verificamos si el gifo ampliado se encuentra en la lista de favoritos y así mostrar el icono fav especifico
     let ind = favorite_array.findIndex(x => x.url_gif.id == gifos_list[index].url_gif.id);
     if(ind != -1){
@@ -81,6 +92,59 @@ let gifo_full_screen = (index, gifos_list)=>{//Función para enviar info al full
         //en caso de que la condición anterior se haya cumplido con un gifo anterior
         full_screen_icon_fav[0].style.display ="inline-block";
         full_screen_icon_fav_act[0].style.display ="none";
+    }
+    //verificamos si el gifo ampliado se encuentra en la lista de misGifos y así mostrar el icono de trash y ocular el de fav
+    let index_Trash =  created_gifos_array.findIndex(x => x.url_gif.id == gifos_list[index].url_gif.id);
+    if(index_Trash != -1 ){
+        full_screen_icon_fav[0].style.display ="none";
+        full_screen_icon_fav_act[0].style.display ="none";
+        full_screen_icon_delete[0].style.display = "inline-block";
+    }else{
+        full_screen_icon_delete[0].style.display = "none";        
+    }
+}
+//SLIDER PARA FULL SCREEN
+let functionChangeGifo = (callback)=>{//utilizamos un callback para el btón izq y der
+    callback();
+}
+let changeLeft = () =>{
+    sliderFullScreen(-1);
+}
+let changeRight = () =>{
+    sliderFullScreen(1);
+}
+//recibe como parametro el avance para la proxima posición
+let sliderFullScreen = (i)=>{
+    let type_gifo = full_screen_icon_delete[0].id.slice(0,13);
+    //identificamos de que tipo de gifo sobre el que se quiere trabajar
+    if(type_gifo == "trash-icon-gt"){
+        //obtenemos la posición del gifo ampliado en la lista de gifos correspondiente, utilizo como referencia el id del trash-icon, el cual,
+        //se toma de la propiedad id_trash_icon de la lista de trending,search, favorites o created array
+        let index = trending_gifos_array.findIndex(x => x.id_trash_icon == full_screen_icon_delete[0].id);
+        if((index+i) >= 0 && (index+i) < trending_gifos_array.length){//controlamos que no se ejecute ni con el primer ni con el ultimo gifo
+            gifo_full_screen((index+i),trending_gifos_array);
+        }
+    }else if(type_gifo == "trash-icon-gs"){
+        let index = gifos_searched_array.findIndex(x => x.id_trash_icon == full_screen_icon_delete[0].id);
+        if((index+i) >= 0 
+            && (index+i) < gifos_searched_array.length
+            && (index+i) < num_gifos_results){
+            gifo_full_screen((index+i),gifos_searched_array);
+        }
+    }else if(type_gifo == "trash-icon-gf"){
+        let index = favorite_array.findIndex(x => x.id_trash_icon == full_screen_icon_delete[0].id);
+        if((index+i) >= 0 
+            && (index+i) < favorite_array.length
+            && (index+i) < num_gifos_favorites){
+            gifo_full_screen((index+i),favorite_array);
+        }
+    }else if(type_gifo == "trash-icon-gc"){
+        let index = created_gifos_array.findIndex(x => x.id_trash_icon == full_screen_icon_delete[0].id);
+        if((index+i) >= 0 
+            && (index+i) < created_gifos_array.length
+            && (index+i) < num_gifos_myGifos){
+            gifo_full_screen((index+i),created_gifos_array);
+        }
     }
 }
 

@@ -1,10 +1,21 @@
 //mediante la nueva hoja de estilos, dar los colores para el modo dark
 .page-container.dark-mode{ //cuando la etiqueta tenga las dos clases
     background: #37383C;
+    //______________BOTÓN VER MAS - GENERICO______________
+    .button-gifo{
+        border-color: #FFFFFF;
+        color: #FFFFFF;
+        &:active{
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+    }
+    //______________-FULL SCREEN GIFOS______________
     .full-screen-section{
         background: #37383C;
         color: #FFFFFF;
     }
+    // _________________-SECCIÓN DE ENCABEZADO________________
     .header-container{
         .menu-container{
             background: #000000;
@@ -15,6 +26,7 @@
             }
         }
     }
+    //_________________SECCIÓN DE BUSQUEDA DE GIFOS__________
     .search-gifos-container{
         .title{
             color: #FFFFFF;
@@ -29,24 +41,98 @@
         .trending-box{
             color: #FFFFFF;
         }
+        .search-without-result-container{
+            .search-without-result-title{
+                color: #FFFFFF;
+            }
+        }
+        .results-container{
+            .results-title{
+                color: #FFFFFF;
+            }
+        }
     }
+    //__________________SECCIÓN GIFOS FAVORITOS___________________
+    .favorite-gifos-section{
+        .favorite-gifos-title{
+            color: #FFFFFF;
+        }
+    }
+    //____________________SECCIÓN MIS GIFOS _____________________
+    .my-gifos-section{
+        .my-gifos-title{
+            color: #FFFFFF;
+        }
+
+    }
+    //__________________SECCIÓN TRENDING GIFOS___________________
     .trending-gifos-container{
         background: #222326;
         .title-trending-gifos, .content-trending-gifos{
             color: #FFFFFF;
         }
     }
+    //__________________SECCIÓN CREATE GIFOS_______________________
+    .create-gifos-section{
+        .create-gifos-container{
+            border-color: #FFFFFF;
+            .create-gifos-container-screen{
+                border-color: #FFFFFF;
+                .create-gifo-decription-step{
+                    .create-gifo-title{
+                        color: #FFFFFF;
+                    }
+                    .create-gifo-content{
+                        color: #FFFFFF;
+                    }
+                }
+            }
+            .create-gifos-container-steps{
+                .step-item{
+                    border-color: #FFFFFF;
+                    color: #FFFFFF;
+                }
+                .step-item-selected{
+                    background: #FFFFFF;
+                    border-color: #FFFFFF;
+                    color: #000000;
+                }
+                .timekeeper-item{
+                    color: #FFFFFF;
+                }
+                .record-again-item{
+                    color: #FFFFFF;
+                    // border-color: #FFFFFF;
+                }
+            }   
+        }
+    }
+    //__________________SECCIÓN FOOTER_______________________
     .footer-gifos{
         color: #FFFFFF;
     }
 }
 @media (min-width: 1024px){
     .page-container.dark-mode{
+        // _________________-SECCIÓN DE ENCABEZADO________________
         .header-container{
             .menu-container{
                 background: #37383C;
                 .menu-item{
                     color:  #FFFFFF;
+                }
+            }
+        }
+        //__________________SECCIÓN CREATE GIFOS_______________________
+        .create-gifos-section{
+            .create-gifos-container{
+                .create-gifos-container-steps{
+                    .record-again-item{
+                        border-color: #37383C;
+                        &:hover{
+                            border-color: #5ED7C6;
+                        }
+                    }
                 }
             }
         }

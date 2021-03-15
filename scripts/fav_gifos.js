@@ -14,7 +14,7 @@ let list_favorites = () =>{
 //funcionalidad para agregar un gifo a la lista de favoritos
 let add_fav_gifo  = (url_gifo_fav)=>{
     let long = favorite_array.length;
-    let gifo = new New_gifo(url_gifo_fav, "gifo-favorite-"+(long+1), "fav-icon-gf-"+(long+1),"fav-icon-act-gf-"+(long+1),"dow-icon-fav-"+(long+1),"full-screen-icon-fav-"+(long+1));
+    let gifo = new New_gifo(url_gifo_fav, "gifo-favorite-"+(long+1), "fav-icon-gf-"+(long+1),"fav-icon-act-gf-"+(long+1),"dow-icon-gf-"+(long+1),"full-screen-icon-gf-"+(long+1),"trash-icon-gf-"+(long+1));
     favorite_array.push(gifo);
     //lo enviamos al local storage pero antes lo convertimos el objeto a un JSON
     localStorage.setItem("fav_gifos",JSON.stringify(favorite_array));
@@ -37,15 +37,20 @@ let add_fav_gifo_cards = ()=>{
             for(let i=num_gifos_favorites; i<(lim_sup);i++){
                 add_gifo_card(favorite_gifos_container,"gifo-favorite",favorite_array,i);
             }
-        //la variable la igualamos al número de gifos cards agregados hasta el momento y será utilizado al ser llamada
-        //  de nuevo la función
-        num_gifos_favorites = gifo_box_favorite.length;
+            //la variable la igualamos al número de gifos cards agregados hasta el momento y será utilizado al ser llamada
+            //  de nuevo la función
+            num_gifos_favorites = gifo_box_favorite.length;
         }else{//en caso de ser < de 12 gifos favoritos, los desplegaremos y no mostraremos el botón
             see_more_button_favorite.style.display ="none"                    
             for(let i=0; i<favorite_array.length; i++){
                 add_gifo_card(favorite_gifos_container,"gifo-favorite",favorite_array,i);
             } 
         }
+        //si llegó al ultimo gif ocultamos el botón ver más
+        if(favorite_array.length == num_gifos_favorites){
+            see_more_button_favorite.style.display = "none"
+        }
+
     }else{//si no tenemos resultados mostramos el div de "sin resultados"
         favorite_gifos_container.style.display = "none";
         without_favorite_cotainer.style.display = "block";
