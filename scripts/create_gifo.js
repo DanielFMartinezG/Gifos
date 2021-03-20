@@ -85,6 +85,15 @@ btn_end_gifo.addEventListener("click", () =>{
         btn_up_gifo.classList.toggle("show-bttn");//mostramos el botón de subir gifo
     });
 });
+//FUNCIONALIDAD DESTINADA A APAGAR LA CAMARA
+function stopStreamedVideo(videoElem) {
+    const stream = videoElem.srcObject;
+    const tracks = stream.getTracks();
+    tracks.forEach(function(track) {
+    track.stop();
+    });
+    videoElem.srcObject = null;
+}
 //BTN_GRABAR NUEVAMENTE
 record_again.addEventListener("click", ()=>{
     btn_up_gifo.classList.toggle("show-bttn");//ocultamos el botón subir gifo
@@ -138,6 +147,12 @@ let search_gifo_byId = (gif_id)=>{
         localStorage.setItem("new_gifo",JSON.stringify(created_gifos_array));
         uploannding_gifo_box.style.display = "none";//ocultamos el hover de subiendo gifo
         uploaded_gifo_box.style.display = "block";//habilitamos el hover de gifo subido con exito
+        //si fue subido con exito procedemos a apagar la camara y mostrar el img con el gif subido    
+        stopStreamedVideo(cam_stream);
+        cam_stream.style.display = "none";
+        let gif_stream = document.getElementsByClassName("gif-stream")[0];
+        gif_stream.style.display = "block";
+        gif_stream.src = data_new_gifo.data.images.original.url;
     });
 }
 

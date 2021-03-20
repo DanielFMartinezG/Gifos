@@ -197,3 +197,47 @@ let display_fav_act_icon = (gifo,i) =>{
         fav_icon_act[0].style.display ="block";
     }
 }
+
+//________________________________FUNCIONALIDAD PARA DESCARGAR GIFOS_____________________________________
+//trabajo mediante los ID de los elementos clickeados y los id almacenados en las listas de objetos creados por cada tipo de gifo
+let download_gifo = (gifo) => {
+    if(gifo.id.slice(0,12) == "dow-icon-gt-"){
+        let index = trending_gifos_array.findIndex(x => x.id_dow_gif_icon == gifo.id);
+        let id_download = trending_gifos_array[index].url_gif.id;
+        let title_download = "Gifo_Trending";
+        download_gifo_id(title_download,id_download);
+    }else if(gifo.id.slice(0,12) == "dow-icon-gs-") {
+        let index = gifos_searched_array.findIndex(x => x.id_dow_gif_icon == gifo.id);
+        let id_download = gifos_searched_array[index].url_gif.id;
+        let title_download = "Gifo_Search";
+        download_gifo_id(title_download,id_download);
+    }else if(gifo.id.slice(0,12) == "dow-icon-gf-") {
+        let index = favorite_array.findIndex(x => x.id_dow_gif_icon == gifo.id);
+        let id_download = favorite_array[index].url_gif.id;
+        let title_download = "Gifo_Favorite";
+        download_gifo_id(title_download,id_download);
+    }else if(gifo.id.slice(0,12) == "dow-icon-gc-") {
+        let index = created_gifos_array.findIndex(x => x.id_dow_gif_icon == gifo.id);
+        let id_download = created_gifos_array[index].url_gif.id;
+        let title_download = "My_Gifo";
+        download_gifo_id(title_download,id_download);
+    }else if (gifo.id == "gifo_created_id"){
+        let id_download = created_gifos_array[created_gifos_array.length -1 ].url_gif.id;
+        let title_download = "My_Gifo";
+        download_gifo_id(title_download,id_download);
+    }
+}
+let download_gifo_id = (gif_title,gif_id) =>{
+    // DESCARGAR GIFO
+    let a = document.createElement("a");
+    let url_download_gifo = "https://media2.giphy.com/media/"+gif_id+"/giphy.gif?&"+api_key+"&rid=giphy.gif";
+    fetch(url_download_gifo)
+    .then(responese => responese.blob())
+    .then(data => {
+        a.href = window.URL.createObjectURL(new Blob([data]));
+        a.download = gif_title + ".gif";
+        a.dataset.download = ['application/octet-stream', a.download, a.href].join(":");
+        a.target = '_blank';
+        a.click();
+    });
+}

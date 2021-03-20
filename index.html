@@ -32,7 +32,7 @@
                     <img src="./assets/icon-fav.svg" alt="fav icono" class="gifos-icon-normal">
                     <img src="./assets/icon-fav-hover.svg" alt="fav icono" class="gifos-icon-hover">
                 </div>
-                <div class="gifos-icon icon-download"><!--Icono de descarga-->
+                <div class="gifos-icon icon-download" onclick="download_gifo(this)"><!--Icono de descarga-->
                     <img src="./assets/icon-download.svg" alt="descargas icono" class="gifos-icon-normal">
                     <img src="./assets/icon-download-hover.svg" alt="descargas icono" class="gifos-icon-hover">
                 </div>
@@ -90,7 +90,7 @@
                     <img src="./assets/icon-fav.svg" alt="" class="fs-icon-normal item-gifo-fs">
                     <img src="./assets/icon-fav-hover.svg" alt="" class="fs-icon-hover item-gifo-fs">
                 </div>
-                <div class="item-full-screen icon-dow-full-screen">
+                <div class="item-full-screen icon-dow-full-screen" onclick="download_gifo(this)">
                     <img src="./assets/icon-download.svg" alt="" class="fs-icon-normal item-gifo-fs">
                     <img src="./assets/icon-download-hover.svg" alt="" class="fs-icon-hover item-gifo-fs">
                 </div>
@@ -269,12 +269,13 @@
                         <!-- BOX STREAM VIDEO -->
                         <div class="cam-screen-box">
                             <video src="./assets/gato.png" class="cam-stream"></video>
+                            <img src="./" alt="gif stream" class="gif-stream">
                         </div>
                         <!-- HOVER DE GIFO SUBIDO -->
                         <div class="cam-screen-box cam-screen-uploading" id="uploaded-gifo-box">
                             <!-- ICONOS DEL HOVER -->
                             <div class="cam-screen-icons-container ">
-                                <div class="cam-screen-icons-box">
+                                <div class="cam-screen-icons-box" id = "gifo_created_id" onclick="download_gifo(this)">
                                     <img src="./assets/icon-download.svg" alt="img descargar" class="cam-screen-icons">
                                     <img src="./assets/icon-download-hover.svg" alt="img descargar" class="cam-screen-icons-hover">
                                 </div>
